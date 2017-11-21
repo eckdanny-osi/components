@@ -1,0 +1,10 @@
+{
+  "name": "components",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.17",
+    "webpack": "^3.8.1"
+  }
+}
