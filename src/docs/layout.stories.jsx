@@ -28,7 +28,7 @@ storiesOf('Layout', module)
         title="Demo Page"
         actions={
           <div>
-            <Button bsSize="large">Save</Button>
+            <Button className="btn-outline" bsSize="large">Save</Button>
           </div>
         }
       />

@@ -27,9 +27,9 @@ const Navbar = ({
       </div>
 
       {/* <!-- Collect the nav links, forms, and other content for toggling --> */}
-      <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div className="collapse collapsed navbar-collapse hidden" id="bs-example-navbar-collapse-1">
         <ul className="nav navbar-nav">
-          <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
+          <li><a href="#">Link <span className="sr-only">(current)</span></a></li>
           <li><a href="#">Link</a></li>
           <li className="dropdown">
             <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>

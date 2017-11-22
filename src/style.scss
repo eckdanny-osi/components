@@ -18,7 +18,7 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/grid";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/tables";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/forms";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap/buttons";
 
 // Components
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
@@ -60,3 +60,4 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
 @import "./components/Masthead/masthead";
 @import "./components/Alert/alert";
+@import "./components/Button/buttons";
