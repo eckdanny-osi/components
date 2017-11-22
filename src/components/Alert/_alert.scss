@@ -1,8 +1,16 @@
+$alert-margin-bottom: 5px;
+$alert-border-width: 2px;
+$alert-padding-y: 5px;
+$alert-padding-x: 5px;
+
 .alert {
+
+  border: 5px solid red;
+
   position: relative;
   // padding: $alert-padding-y $alert-padding-x;
   margin-bottom: $alert-margin-bottom;
-  border: $alert-border-width solid transparent;
+  // border: $alert-border-width solid transparent;
   // @include border-radius($alert-border-radius);
   display: flex;
   align-items: stretch;
@@ -15,7 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  @include border-radius($alert-border-radius);
+  // @include border-radius($alert-border-radius);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   & span {
@@ -26,8 +34,8 @@
 .alert-body {
   background-color: white;
   padding: $alert-padding-y $alert-padding-x;
-  border: $alert-border-width solid $border-color;
-  @include border-radius($alert-border-radius);
+  // border: $alert-border-width solid $border-color;
+  // @include border-radius($alert-border-radius);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-left: none;
@@ -44,12 +52,12 @@
   }
 }
 
-@each $color, $value in $theme-colors {
-  .alert-#{$color} .alert-icon {
-    @include alert-variant(
-      theme-color-level($color, 0),
-      $border-color,
-      $white
-    );
-  }
-}
+// @each $color, $value in $theme-colors {
+//   .alert-#{$color} .alert-icon {
+//     @include alert-variant(
+//       theme-color-level($color, 0),
+//       $border-color,
+//       $white
+//     );
+//   }
+// }

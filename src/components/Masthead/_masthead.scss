@@ -1,0 +1,20 @@
+.masthead {
+  background-image: linear-gradient(to right, $masthead-bg-dark, $masthead-bg-light);
+  margin-bottom: $masthead-margin-bottom;
+}
+
+.masthead-body {
+  height: $masthead-height;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.masthead-title {
+  background-color: red;
+}
+
+.masthead-actions {
+  background-color: green;
+}
