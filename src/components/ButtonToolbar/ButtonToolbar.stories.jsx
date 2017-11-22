@@ -12,7 +12,7 @@ storiesOf('Buttons', module)
   /**
    *
    */
-  .add('Contextual Colors', () => (
+  .add('Colors', () => (
     <ButtonToolbar>
       <Button>Default</Button>
       <Button bsStyle="primary">Primary</Button>
