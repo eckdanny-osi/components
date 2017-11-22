@@ -3,8 +3,27 @@
   "version": "1.0.0",
   "main": "lib/index.js",
   "license": "MIT",
+  "scripts": {
+    "build:css": "node-sass --output lib --source-map true --source-map-contents --include-path node_modules --include-path \"node_modules/bootstrap-sass/assets/stylesheets\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.2.16",
+    "@storybook/addon-links": "^3.2.16",
+    "@storybook/react": "^3.2.16",
+    "bootstrap-sass": "^3.3.7",
     "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.7",
+    "node-sass": "^4.7.2",
+    "prop-types": "^15.6.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "typescript": "^2.6.1",
     "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1"
   }
 }
