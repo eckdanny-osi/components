@@ -1,13 +1,14 @@
 import { configure } from '@storybook/react';
+import "../src/style.scss";
 
 const req = require.context('../src', true, /\.stories\.jsx?$/)
 
-// function loadStories() {
-//   require('../stories');
-// }
+// const loadStories = () => { require('../stories'); };
 
-function loadStories() {
+// const loadStoriesDynamic = () => { req.keys().forEach(filename => req(filename)) };
+
+function loadStoriesDynamic() {
   req.keys().forEach((filename) => req(filename))
 }
 
-configure(loadStories, module);
+configure(loadStoriesDynamic, module);

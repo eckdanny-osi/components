@@ -4,9 +4,16 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import { default as Button } from './Button';
-
+import { Button } from './';
 
 storiesOf('Button', module)
+
+  /**
+   * 
+   */
   .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
+
+  /**
+   * 
+   */
   .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);

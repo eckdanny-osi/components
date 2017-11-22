@@ -9,12 +9,9 @@
 const path = require('path');
 
 module.exports = {
-  plugins: [
-    // your custom plugins
-  ],
+  plugins: [],
   module: {
     rules: [
-      // add your custom rules.
       {
         test: /\.scss$/,
         loaders: ["style-loader", "css-loader", "sass-loader"],

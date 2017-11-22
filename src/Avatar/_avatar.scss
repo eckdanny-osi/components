@@ -1,0 +1,30 @@
+.avatar {
+  display: inline-block;
+  overflow: auto;
+  // TODO: this should be in _custom.scss
+  background-color: #ededed;
+  color: #a5a29f;
+  vertical-align: middle;
+  border: none;
+  height: $avatar-size-md;
+  width: $avatar-size-md;
+  font-size: $avatar-size-md*.75;
+  text-align: center;
+  margin: 0 2px;
+}
+
+.avatar.fa:before {
+  vertical-align: middle;
+}
+
+.avatar-sm {
+  height: $avatar-size-sm;
+  width: $avatar-size-sm;
+  font-size: $avatar-size-sm*.75;
+}
+
+.avatar-lg {
+  height: $avatar-size-lg;
+  width: $avatar-size-lg;
+  font-size: $avatar-size-lg*.75;
+}
