@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Alert, utils } from 'react-bootstrap';
-import { Icon } from '../'
+import { Icon, CloseButton } from '../'
 
 const {
   getClassSet,
