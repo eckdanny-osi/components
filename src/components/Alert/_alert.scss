@@ -114,14 +114,31 @@ $alert-border-color: #c4c4c4;
 }
 
 
-.alert-dismissable {
+// .alert-dismissable {
+//   // Adjust close link position
+//   .close {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     //padding: $alert-padding-y $alert-padding-x;  // FIXME
+//     padding: 10px 15px;
+//     color: inherit;
+//   }
+// }
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.alert-dismissable .alert-body, // The misspelled .alert-dismissable was deprecated in 3.2.0.
+.alert-dismissible .alert-body {
+  padding-right: ($alert-padding + 20);
+
   // Adjust close link position
   .close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    //padding: $alert-padding-y $alert-padding-x;  // FIXME
-    padding: 10px 15px;
+    position: relative;
+    top: -2px;
+    right: -21px;
     color: inherit;
   }
 }

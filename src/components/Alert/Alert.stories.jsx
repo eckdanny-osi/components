@@ -1,11 +1,39 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
-
 import { Button, Alert } from '../';
-// import { Alert } from 'react-bootstrap';
+
+class AlertDismissable extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      alertVisible: true
+    }
+    this.handleAlertDismiss = this.handleAlertDismiss.bind(this);
+    this.handleAlertShow = this.handleAlertShow.bind(this);
+  }
+  render() {
+    if (this.state.alertVisible) {
+      return (
+        <Alert bsStyle={this.props.bsStyle} onDismiss={this.handleAlertDismiss}>
+          {this.props.children}
+        </Alert>
+      );
+    }
+
+    return (
+      <Button onClick={this.handleAlertShow}>Show Alert</Button>
+    );
+  }
+  handleAlertDismiss() {
+    this.setState({ alertVisible: false });
+  }
+  handleAlertShow() {
+    this.setState({ alertVisible: true });
+  }
+}
+
 
 storiesOf('Alerts', module)
 
@@ -21,35 +49,13 @@ storiesOf('Alerts', module)
     </div>
   ))
 
-  .add('Dismissible', () => {
-    class AlertDismissable extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = {
-          alertVisible: true
-        }
-        this.handleAlertDismiss = this.handleAlertDismiss.bind(this);
-        this.handleAlertShow = this.handleAlertShow.bind(this);
-      }
-      render() {
-        if (this.state.alertVisible) {
-          return (
-            <Alert bsStyle="danger" onDismiss={this.handleAlertDismiss}>
-              Boss is comming. Hide the alert!
-            </Alert>
-          );
-        }
+  .add('Dismissible', () => (
+    <div>
+      <AlertDismissable bsStyle="danger">Boss is comming... Hide the alert!</AlertDismissable>
+      <AlertDismissable bsStyle="info">The sky is blue</AlertDismissable>
+    </div>
+  ))
 
-        return (
-          <Button onClick={this.handleAlertShow}>Show Alert</Button>
-        );
-      }
-      handleAlertDismiss() {
-        this.setState({ alertVisible: false });
-      }
-      handleAlertShow() {
-        this.setState({ alertVisible: true });
-      }
-    }
-    return <AlertDismissable />
-  });
+  // .add('Overflow', () => (
+
+  // ));
