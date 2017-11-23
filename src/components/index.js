@@ -12,3 +12,4 @@ export * from './Navbar';
 export * from './Masthead';
 export * from './Row';
 export * from './Icon';
+export * from './CloseButton';

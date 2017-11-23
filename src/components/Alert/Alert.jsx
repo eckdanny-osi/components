@@ -1,8 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
-import { default as Alert } from 'react-bootstrap/es/Alert';
-import { getClassSet, prefix, splitBsProps } from 'react-bootstrap/es/utils/bootstrapUtils';
+import { Alert, utils } from 'react-bootstrap';
 import { Icon } from '../'
+
+const {
+  getClassSet,
+  prefix,
+  splitBsProps,
+} = utils.bootstrapUtils;
 
 const contextIcons = {
   success: 'check-circle',
