@@ -1,1 +1,1 @@
-export { default as CloseButton } from 'react-bootstrap/es/CloseButton';
+export { CloseButton } from 'react-bootstrap';

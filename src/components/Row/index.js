@@ -1,1 +1,1 @@
-export { default as Row } from 'react-bootstrap/es/Row';
+export { Row } from 'react-bootstrap';

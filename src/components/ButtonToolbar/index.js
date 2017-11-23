@@ -1,1 +1,1 @@
-export { default as ButtonToolbar } from 'react-bootstrap/es/ButtonToolbar';
+export { ButtonToolbar } from 'react-bootstrap';
