@@ -1,4 +1,5 @@
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$fa-font-path:   "~font-awesome/fonts";
 
 @import "./core/variables";
 
@@ -58,6 +59,7 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 // TODO(dce): PLACE ME
 //
 
+@import "~font-awesome/scss/font-awesome";
 @import "./components/Masthead/masthead";
 @import "./components/Alert/alert";
 @import "./components/Button/buttons";

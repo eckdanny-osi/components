@@ -11,3 +11,4 @@ export * from './Container';
 export * from './Navbar';
 export * from './Masthead';
 export * from './Row';
+export * from './Icon';
