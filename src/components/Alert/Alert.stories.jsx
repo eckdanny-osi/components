@@ -35,7 +35,7 @@ storiesOf('Alerts', module)
         if (this.state.alertVisible) {
           return (
             <Alert bsStyle="danger" onDismiss={this.handleAlertDismiss}>
-              <p>Boss is comming. Hide the alert!</p>
+              Boss is comming. Hide the alert!
             </Alert>
           );
         }
