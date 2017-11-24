@@ -878,9 +878,22 @@ $hr-border:                   $gray-lighter !default;
 // Userland Components
 //
 
-// Masthead (avoiding naming collision with page-header (BS3 builtin)
-
+//
+// Masthead (avoid naming collision with `page-header` (BS3 builtin)
+//
 $masthead-height:          120px;
 $masthead-bg-dark:        #0c4e78;
 $masthead-bg-light:       #087b8e;
 $masthead-margin-bottom:  15px;
+
+//
+// Avatars
+//
+$avatar-bg-color:   white; // #ededed
+$avatar-color:      #a5a29f;
+$avatar-margin-x:   2px;
+$avatar-margin-y:   0;
+
+$avatar-size-sm:            15px;
+$avatar-size-md:            25px;
+$avatar-size-lg:            50px;

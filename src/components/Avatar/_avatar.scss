@@ -1,30 +1,29 @@
+@mixin avatar($size, $nudge) {
+  height: $size;
+  width: $size;
+  font-size: $size*0.75;
+  &.fa:before {
+    top: $nudge;
+  }
+}
+
 .avatar {
-  display: inline-block;
-  overflow: auto;
-  // TODO: this should be in _custom.scss
-  background-color: #ededed;
-  color: #a5a29f;
-  vertical-align: middle;
+  background-color: $avatar-bg-color;
   border: none;
-  height: $avatar-size-md;
-  width: $avatar-size-md;
-  font-size: $avatar-size-md*.75;
+  border-radius: 50% !important;
+  color: $avatar-color;
+  display: inline-block;
+  margin: $avatar-margin-y $avatar-margin-x;
+  overflow: hidden;
   text-align: center;
-  margin: 0 2px;
-}
-
-.avatar.fa:before {
   vertical-align: middle;
+  &.fa:before {
+    position: relative;
+  }
 }
 
-.avatar-sm {
-  height: $avatar-size-sm;
-  width: $avatar-size-sm;
-  font-size: $avatar-size-sm*.75;
-}
+.avatar-sm { @include avatar($avatar-size-sm, 2px) }
 
-.avatar-lg {
-  height: $avatar-size-lg;
-  width: $avatar-size-lg;
-  font-size: $avatar-size-lg*.75;
-}
+.avatar-md { @include avatar($avatar-size-md, 4px) }
+
+.avatar-lg { @include avatar($avatar-size-lg, 5px) }
