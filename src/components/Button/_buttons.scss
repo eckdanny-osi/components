@@ -1,5 +1,9 @@
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/buttons";
 
+.btn {
+  text-transform: uppercase;
+}
+
 .btn-outline {
   border-width: 3px;
   color: white;
