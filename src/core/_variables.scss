@@ -748,6 +748,10 @@ $panel-danger-text:           $state-danger-text !default;
 $panel-danger-border:         $state-danger-border !default;
 $panel-danger-heading-bg:     $state-danger-bg !default;
 
+// Active Panel indicators
+$panel-active-border-color: $brand-primary;
+$panel-active-border-width: 5px;
+
 
 //== Thumbnails
 //

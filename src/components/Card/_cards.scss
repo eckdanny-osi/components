@@ -1,1 +1,21 @@
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/panels";
+
+.panel-active {
+  position: relative;
+  &:before {
+    content: ' ';
+    position: absolute;
+    border-left: $panel-active-border-width solid $panel-active-border-color;
+    height: 100%;
+  }
+}
+
+
+
+//
+// Overrides
+//
+
+.panel-footer.panel-footer {
+  border-top: 1px solid transparent;
+}
