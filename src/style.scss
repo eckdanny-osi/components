@@ -39,7 +39,7 @@ $fa-font-path:   "~font-awesome/fonts";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/progress-bars";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/media";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/list-group";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/panels";
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap/panels";  // <= see `_cards.scss`
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/wells";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/close";
@@ -64,3 +64,4 @@ $fa-font-path:   "~font-awesome/fonts";
 @import "./components/Alert/alert";
 @import "./components/Button/buttons";
 @import "./components/Avatar/avatar";
+@import "./components/Card/cards";

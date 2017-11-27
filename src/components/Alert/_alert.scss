@@ -5,126 +5,31 @@ $alert-padding-x: 15px;
 $alert-border-width: 1px;
 $alert-border-color: #c4c4c4;
 
-// .alert {
-
-//   position: relative;
-//   // padding: $alert-padding-y $alert-padding-x;
-//   margin-bottom: $alert-margin-bottom;
-//   // border: $alert-border-width solid transparent;
-//   // @include border-radius($alert-border-radius);
-//   display: flex;
-//   align-items: stretch;
-// }
-// .alert-icon {
-//   width: 40px;
-//   // background-color: red;
-//   color: white;
-//   min-height: 40px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   // @include border-radius($alert-border-radius);
-//   border-top-right-radius: 0;
-//   border-bottom-right-radius: 0;
-//   & span {
-//     max-width: 80%;
-//     overflow: hidden
-//   }
-// }
-// .alert-body {
-//   background-color: white;
-//   padding: $alert-padding-y $alert-padding-x;
-//   // border: $alert-border-width solid $border-color;
-//   // @include border-radius($alert-border-radius);
-//   border-top-left-radius: 0;
-//   border-bottom-left-radius: 0;
-//   border-left: none;
-//   flex: 1;
-// }
-
-// .alert-dismissible {
-//   .close {
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     padding: 10px 15px;
-//     color: inherit;
-//   }
-// }
-
-// // @each $color, $value in $theme-colors {
-// //   .alert-#{$color} .alert-icon {
-// //     @include alert-variant(
-// //       theme-color-level($color, 0),
-// //       $border-color,
-// //       $white
-// //     );
-// //   }
-// // }
-
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-
-
 .alert {
 
   margin-bottom: $line-height-computed;
-  // border: 1px solid transparent;
   border-radius: $alert-border-radius;
-
   background-color: white;
-
-
-  // position: relative;
-  // padding: $alert-padding-y $alert-padding-x;
-  // margin-bottom: $alert-margin-bottom;
-  // border: $alert-border-width solid transparent;
-  // @include border-radius($alert-border-radius);
   display: flex;
   align-items: stretch;
 }
 .alert-icon {
   width: 40px;
-//   // background-color: red;
-//   color: white;
-//   min-height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-//   @include border-radius($alert-border-radius);
-//   border-top-right-radius: 0;
-//   border-bottom-right-radius: 0;
   & span {
     max-width: 80%;
     overflow: hidden
   }
 }
 .alert-body {
-  // padding: $alert-padding;
   padding: $alert-padding-y $alert-padding-x;
   background-color: white;
-//   padding: $alert-padding-y $alert-padding-x;
   border: $alert-border-width solid $alert-border-color;
-//   @include border-radius($alert-border-radius);
-//   border-top-left-radius: 0;
-//   border-bottom-left-radius: 0;
   border-left: none;
   flex: 1;
 }
-
-
-// .alert-dismissable {
-//   // Adjust close link position
-//   .close {
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     //padding: $alert-padding-y $alert-padding-x;  // FIXME
-//     padding: 10px 15px;
-//     color: inherit;
-//   }
-// }
 
 // Dismissible alerts
 //
@@ -144,16 +49,9 @@ $alert-border-color: #c4c4c4;
 }
 
 
-// Alternate styles
+// Alternate styles (Userland)
 //
 // Generate contextual modifier classes for colorizing the alert.
-
-$alert-colors: (
-  "success":    $brand-success,
-  "info":       $brand-info,
-  "warning":    $brand-warning,
-  "danger":     $brand-danger,
-);
 
 @each $contex, $color in $alert-colors {
   .alert-#{$contex} .alert-icon {
