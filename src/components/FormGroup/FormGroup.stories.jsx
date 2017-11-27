@@ -108,11 +108,11 @@ const FormInstance = () => (
   </form>
 );
 
-storiesOf('FormGroup', module)
+storiesOf('Forms', module)
 
   /**
    *
    */
-  .add('duh', () => (
+  .add('form elements', () => (
     <FormInstance />
   ));
