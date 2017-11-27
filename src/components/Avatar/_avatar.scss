@@ -17,6 +17,8 @@
   overflow: hidden;
   text-align: center;
   vertical-align: middle;
+  object-fit: cover;
+  object-position: center;
   &.fa:before {
     position: relative;
   }
