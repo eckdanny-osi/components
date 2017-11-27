@@ -6,6 +6,8 @@ import { linkTo } from '@storybook/addon-links';
 
 import { Card, Button, ButtonToolbar } from '../';
 
+import CardExample from './CardExample.stories';
+
 
 class ActiveCardDemo extends React.Component {
   constructor(props) {
@@ -87,7 +89,7 @@ class ActiveCardDemo extends React.Component {
 }
 
 
-storiesOf('Card', module)
+storiesOf('Cards', module)
 
   /**
    *
@@ -114,4 +116,11 @@ storiesOf('Card', module)
    */
   .add('Action Cards', () => (
     <ActiveCardDemo />
+  ))
+
+  /**
+   *
+   */
+  .add('Complex Example', () => (
+    <CardExample />
   ));
