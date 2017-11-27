@@ -13,6 +13,7 @@ export * from './Masthead';
 export * from './Row';
 export * from './Icon';
 export * from './CloseButton';
+export * from './Form';
 export * from './FormGroup';
 export * from './Radio';
 export * from './Checkbox';

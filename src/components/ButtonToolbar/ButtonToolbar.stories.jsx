@@ -21,6 +21,7 @@ storiesOf('Buttons', module)
     <ButtonToolbar>
       <Button>Default</Button>
       <Button bsStyle="primary">Primary</Button>
+      {/* <Button bsStyle="secondary">Secondary</Button> */}
       <Button bsStyle="success">Success</Button>
       <Button bsStyle="info">Info</Button>
       <Button bsStyle="warning">Warning</Button>

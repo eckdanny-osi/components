@@ -1,6 +1,13 @@
 import React from 'react';
+import set from 'lodash.set';
 
-import { Card, Button, ButtonToolbar, Container, Row, Col, Icon } from '../';
+import {
+  Card,
+  Button, ButtonToolbar,
+  Container, Row, Col,
+  FormGroup, ControlLabel, HelpBlock, Checkbox, Radio, FormControl,
+  Icon
+} from '../';
 
 const change = fn => ({target: { type, checked, value, name }}) => fn(name, 'checkbox' === type ? checked : value);
 
@@ -75,8 +82,8 @@ const CardExampleEditView = ({
             onChange={onChange}
           />
         </div>
-        <div className="form-group">
-          <label>First Name</label>
+        <FormGroup>
+          <ControlLabel>First Name</ControlLabel>
           <input
             type="text"
             className="form-control"
@@ -85,7 +92,7 @@ const CardExampleEditView = ({
             name="model.fname"
             onChange={onChange}
           />
-        </div>
+        </FormGroup>
         <div className="form-check">
           <label className="form-check-label">
             <input
@@ -214,6 +221,7 @@ export default class CardExample extends React.Component {
     }
 
     handleChange(key, value) {
+      console.log(key, value);
       this.setState(set(this.state, key, value));
     }
 

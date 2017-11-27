@@ -4,18 +4,10 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-// import { Container } from './';
-// import { Row } from '../Row';
-// import { Col } from '../Col';
-
 import {
   Button,
-  FormGroup,
-  ControlLabel,
-  HelpBlock,
-  Checkbox,
-  Radio,
-  FormControl
+  FormGroup, ControlLabel, HelpBlock, Checkbox, Radio, FormControl,
+  Container
 } from '../'
 
 
@@ -114,5 +106,7 @@ storiesOf('Forms', module)
    *
    */
   .add('form elements', () => (
-    <FormInstance />
+    <Container>
+      <FormInstance />
+    </Container>
   ));

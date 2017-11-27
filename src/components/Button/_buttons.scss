@@ -4,6 +4,10 @@
   text-transform: uppercase;
 }
 
+// .btn-secondary {
+//   @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+// }
+
 .btn-outline {
   border-width: 3px;
   color: white;
