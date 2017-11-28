@@ -31,4 +31,5 @@ export * from './ModalHeader';
 export * from './ModalTitle';
 export * from './RelationshipList';
 export * from './RelationshipGraph';
+export * from './JsonDump';
 export { _utils as utils };
