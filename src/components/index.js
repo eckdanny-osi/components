@@ -29,4 +29,6 @@ export * from './ModalDialog';
 export * from './ModalFooter';
 export * from './ModalHeader';
 export * from './ModalTitle';
+export * from './RelationshipList';
+export * from './RelationshipGraph';
 export { _utils as utils };
