@@ -6,12 +6,12 @@ import {
   Button, ButtonToolbar,
   Container, Row, Col,
   FormGroup, ControlLabel, HelpBlock, Checkbox, Radio, FormControl,
-  Icon
+  Icon,
+  Well,
+  utils
 } from '../';
 
 const change = fn => ({target: { type, checked, value, name }}) => fn(name, 'checkbox' === type ? checked : value);
-
-const telephone = num => ['(', num.slice(0, 3), ') ', num.slice(3, 6), '-', num.slice(6)].join('');
 
 const initialState = {
   mode: 'edit',
@@ -26,8 +26,8 @@ const initialState = {
     lname: 'Eck',
     isAwesome: true,
     tel: [
-      { value: '5553334444', type: 'mobile' },
-      { value: '3334445566', type: 'office' }
+      { value: '5553334444', type: 'cell' },
+      { value: '3334445566', type: 'work' }
     ]
   }
 };
@@ -93,17 +93,16 @@ const CardExampleEditView = ({
           />
         </FormGroup>
 
-        <FormGroup>
-          <ControlLabel>Is Awesome?</ControlLabel>
-          <input
-            type="checkbox"
-            value={fname}
+        <FormGroup >
+          <Checkbox
+            inline
             name="model.isAwesome"
+            checked={isAwesome}
             onChange={onChange}
-          />
+          >Awesome?</Checkbox>
         </FormGroup>
 
-        <div className="form-check">
+        {/* <div className="form-check">
           <label className="form-check-label">
             <input
               type="checkbox"
@@ -114,9 +113,9 @@ const CardExampleEditView = ({
             />
             Awesome?
           </label>
-        </div>
+        </div> */}
         <label>Phone Numbers</label>
-        <div className="well">
+        <Well>
           {telNumbers.map(({type, value}, i, arr) => (
             <Row key={i}>
               <Col sm={4} >
@@ -132,7 +131,7 @@ const CardExampleEditView = ({
                 </div>
               </Col>
               <Col sm={6}>
-                <div className="form-check form-check-inline">
+                {/* <div className="form-check form-check-inline">
                   <label className="form-check-label">
                     <input
                       className="form-check-input"
@@ -157,7 +156,21 @@ const CardExampleEditView = ({
                     />
                     Work
                   </label>
-                </div>
+                </div> */}
+                <FormGroup>
+                  <FormControl
+                    componentClass="select"
+                    placeholder="select"
+                    name={`model.tel[${i}][type]`}
+                    value={telNumbers[i]['type'] || 'select'}
+                    onChange={onChange}
+                  >
+                    <option disabled value="select">Select...</option>
+                    <option value="cell">Cell</option>
+                    <option value="work">Work</option>
+                    <option value="home">Home</option>
+                  </FormControl>
+                </FormGroup>
               </Col>
               <Col>
                 <Button
@@ -168,12 +181,13 @@ const CardExampleEditView = ({
               </Col>
             </Row>
           ))}
-        </div>
-        {/* <Button
-          className="btn-block"
-          type="success"
+        </Well>
+        <Button
+          type="button"
           onClick={() => _onChange('model.tel', [...telNumbers, { type: '', value: '' }])}
-        >Add Telephone</Button> */}
+        >
+          <Icon name="plus" /> Add Telephone
+        </Button>
       </form>
     </Card>
   );
@@ -210,7 +224,7 @@ const CardExampleReadView = ({
       <h4>Telephone(s)</h4>
       {telNumbers && telNumbers.map(({type, value}, i, arr) => {
         return (
-          <Row key={value}><Col xs={3}>{type}</Col><Col>{telephone(value)}</Col></Row>
+          <Row key={value}><Col xs={3}>{type}</Col><Col>{utils.formatters.telephone(value)}</Col></Row>
         );
       })}
     </Card>

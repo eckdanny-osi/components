@@ -20,7 +20,8 @@ storiesOf('Icons', module)
             margin: '5px',
             display: 'inline-block',
             textAlign: 'center',
-            padding: '5px'
+            padding: '5px',
+            width: '15%'
           }}
         >
           <Icon
@@ -29,7 +30,13 @@ storiesOf('Icons', module)
             size="3x"
           />
           <br />
-          {/* {icon} */}
+          <div
+            style={{
+              fontSize: '8px'
+            }}
+          >
+            {icon}
+          </div>
         </div>
       ))}
     </div>

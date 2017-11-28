@@ -1,3 +1,4 @@
+import * as _utils from '../utils';
 export * from './Alert';
 export * from './Avatar';
 export * from './Badge';
@@ -21,3 +22,5 @@ export * from './Checkbox';
 export * from './FormControl';
 export * from './ControlLabel';
 export * from './HelpBlock';
+export * from './Well';
+export { _utils as utils };
