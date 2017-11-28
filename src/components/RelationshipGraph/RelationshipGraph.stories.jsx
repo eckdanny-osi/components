@@ -20,10 +20,10 @@ storiesOf('Relationships', module)
     <Container>
       <Row>
         <Col sm={6}>
-        <D3Thing
-          width={300}
-          height={300}
-          graph={data} />
+          <D3Thing
+            width={300}
+            height={300}
+            graph={data} />
         </Col>
         <Col sm={6}>
           <JsonDump data={_data} />

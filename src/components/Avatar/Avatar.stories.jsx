@@ -17,8 +17,8 @@ storiesOf('Avatars', module)
    */
   .add('Avatar', () => (
     <Avatar
-      size={select('Size', ['sm', 'md', 'lg'], 'md')}
-      imgUrl={text('imgUrl', '')}
+      size={select('Size', ['sm', 'md', 'lg'], 'lg')}
+      imgUrl={text('imgUrl', 'https://www.famousbirthdays.com/headshots/tom-hanks-5.jpg')}
     />
   ))
 

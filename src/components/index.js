@@ -32,4 +32,5 @@ export * from './ModalTitle';
 export * from './RelationshipList';
 export * from './RelationshipGraph';
 export * from './JsonDump';
+export * from './Tabs';
 export { _utils as utils };
