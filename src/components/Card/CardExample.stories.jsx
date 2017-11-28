@@ -224,7 +224,7 @@ const CardExampleReadView = ({
       <h4>Telephone(s)</h4>
       {telNumbers && telNumbers.map(({type, value}, i, arr) => {
         return (
-          <Row key={value}><Col xs={3}>{type}</Col><Col>{utils.formatters.telephone(value)}</Col></Row>
+          <Row key={i}><Col xs={3}>{type}</Col><Col>{utils.formatters.telephone(value)}</Col></Row>
         );
       })}
     </Card>

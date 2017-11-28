@@ -39,11 +39,10 @@ class FormExample extends React.Component {
           controlId="formBasicText"
           validationState={this.getValidationState()}
         >
-          <ControlLabel controlId="something">Working example with validation</ControlLabel>
+          <ControlLabel>Working example with validation</ControlLabel>
           <FormControl
             type="text"
             value={this.state.value}
-            controlId="something"
             placeholder="Enter text"
             onChange={this.handleChange}
           />
