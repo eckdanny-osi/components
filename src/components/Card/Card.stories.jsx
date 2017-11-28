@@ -30,7 +30,6 @@ class ActiveCardDemo extends React.Component {
               padding: '6px 0'  // $padding-base-vertical
             }}>Header</div>
             <Button
-              bsStyle="secondary"
               className="pull-right"
               onClick={() => this.setScope('edit')}
               >Edit</Button>
@@ -58,7 +57,6 @@ class ActiveCardDemo extends React.Component {
           <div className="clearfix">
             <ButtonToolbar className="pull-right">
               <Button
-                bsStyle="secondary"
                 onClick={() => this.setScope('read')}
                 >Cancel</Button>
               <Button

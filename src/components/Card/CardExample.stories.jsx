@@ -59,7 +59,6 @@ const CardExampleEditView = ({
         <div className="clearfix">
           <ButtonToolbar className="pull-right">
             <Button
-              bsStyle="secondary"
               onClick={onCancel}
               >Cancel</Button>
             <Button
@@ -93,6 +92,17 @@ const CardExampleEditView = ({
             onChange={onChange}
           />
         </FormGroup>
+
+        <FormGroup>
+          <ControlLabel>Is Awesome?</ControlLabel>
+          <input
+            type="checkbox"
+            value={fname}
+            name="model.isAwesome"
+            onChange={onChange}
+          />
+        </FormGroup>
+
         <div className="form-check">
           <label className="form-check-label">
             <input
@@ -105,58 +115,60 @@ const CardExampleEditView = ({
             Awesome?
           </label>
         </div>
-        <label>Telephone Numbers</label>
-        {telNumbers.map(({type, value}, i, arr) => (
-          <Row key={i}>
-            <Col sm={4} >
-              <div className="form-group">
-                <input
-                  type="tel"
-                  className="form-control"
-                  placeholder="5554443322"
-                  value={value}
-                  name={`model.tel[${i}][value]`}
-                  onChange={onChange}
-                />
-              </div>
-            </Col>
-            <Col sm={6}>
-              <div className="form-check form-check-inline">
-                <label className="form-check-label">
+        <label>Phone Numbers</label>
+        <div className="well">
+          {telNumbers.map(({type, value}, i, arr) => (
+            <Row key={i}>
+              <Col sm={4} >
+                <div className="form-group">
                   <input
-                    className="form-check-input"
-                    type="radio"
-                    name={`model.tel[${i}][type]`}
-                    value="mobile"
-                    checked={'mobile' === type}
+                    type="tel"
+                    className="form-control"
+                    placeholder="5554443322"
+                    value={value}
+                    name={`model.tel[${i}][value]`}
                     onChange={onChange}
                   />
-                  Mobile
-                </label>
-              </div>
-              <div className="form-check form-check-inline">
-                <label className="form-check-label">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name={`model.tel[${i}][type]`}
-                    value="work"
-                    checked={'work' === type}
-                    onChange={onChange}
-                  />
-                  Work
-                </label>
-              </div>
-            </Col>
-            <Col>
-              <Button
-                onClick={() => _onChange('model.tel', arr.filter((_, j) => i !== j))}
-              >
-                <Icon name="trash" />
-              </Button>
-            </Col>
-          </Row>
-        ))}
+                </div>
+              </Col>
+              <Col sm={6}>
+                <div className="form-check form-check-inline">
+                  <label className="form-check-label">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name={`model.tel[${i}][type]`}
+                      value="mobile"
+                      checked={'mobile' === type}
+                      onChange={onChange}
+                    />
+                    Mobile
+                  </label>
+                </div>
+                <div className="form-check form-check-inline">
+                  <label className="form-check-label">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name={`model.tel[${i}][type]`}
+                      value="work"
+                      checked={'work' === type}
+                      onChange={onChange}
+                    />
+                    Work
+                  </label>
+                </div>
+              </Col>
+              <Col>
+                <Button
+                  onClick={() => _onChange('model.tel', arr.filter((_, j) => i !== j))}
+                >
+                  <Icon name="times-circle" />
+                </Button>
+              </Col>
+            </Row>
+          ))}
+        </div>
         {/* <Button
           className="btn-block"
           type="success"
@@ -183,7 +195,6 @@ const CardExampleReadView = ({
             padding: '6px 0'  // $padding-base-vertical
           }}>Header</div>
           <Button
-            bsStyle="secondary"
             className="pull-right"
             onClick={onEdit}
             >Edit</Button>
@@ -221,7 +232,6 @@ export default class CardExample extends React.Component {
     }
 
     handleChange(key, value) {
-      console.log(key, value);
       this.setState(set(this.state, key, value));
     }
 
