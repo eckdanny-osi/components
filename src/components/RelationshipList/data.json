@@ -1,0 +1,31 @@
+{
+  "nodes": [
+    { "id": 1, "label": "Gomez Addams" },
+    { "id": 2, "label": "Morticia Addams" },
+    { "id": 3, "label": "Wednesday Addams" },
+    { "id": 4, "label": "Pugsley Addams" },
+    { "id": 5, "label": "Fester" }
+  ],
+  "edges": [
+    { "id": 1, "src": 1, "dest": 2, "label": "Husband" },
+    { "id": 2, "src": 1, "dest": 3, "label": "Father" },
+    { "id": 3, "src": 1, "dest": 4, "label": "Father" },
+    { "id": 4, "src": 1, "dest": 5, "label": "Brother" },
+    { "id": 5, "src": 2, "dest": 1, "label": "Wife" },
+    { "id": 6, "src": 2, "dest": 3, "label": "Mother" },
+    { "id": 7, "src": 2, "dest": 4, "label": "Mother" },
+    { "id": 8, "src": 2, "dest": 5, "label": "Siter-in-Law" },
+    { "id": 9, "src": 3, "dest": 1, "label": "Daughter" },
+    { "id": 10, "src": 3, "dest": 2, "label": "Daughter" },
+    { "id": 11, "src": 3, "dest": 4, "label": "Sister" },
+    { "id": 12, "src": 3, "dest": 5, "label": "Niece" },
+    { "id": 13, "src": 4, "dest": 1, "label": "Son" },
+    { "id": 14, "src": 4, "dest": 2, "label": "Son" },
+    { "id": 15, "src": 4, "dest": 3, "label": "Brother" },
+    { "id": 16, "src": 4, "dest": 5, "label": "Nephew" },
+    { "id": 17, "src": 5, "dest": 1, "label": "Brother" },
+    { "id": 18, "src": 5, "dest": 2, "label": "Brother-in-Law" },
+    { "id": 19, "src": 5, "dest": 3, "label": "Uncle" },
+    { "id": 20, "src": 5, "dest": 4, "label": "Uncle" }
+  ]
+}
