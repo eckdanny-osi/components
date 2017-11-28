@@ -14,8 +14,8 @@ const RelationshipList = ({
         <div key={node.id}>
           <strong>{node.label}</strong> is the
           <ul>
-            {data.edges.filter(edge => node.id === edge.src).map(edge => (
-              <li key={edge.id}><strong>{edge.label}</strong> of {data.nodes.find(d => d.id === edge.dest)['label']}</li>
+            {data.links.filter(link => node.id === link.source).map(link => (
+              <li key={link.id}><strong>{link.label}</strong> of {data.nodes.find(d => d.id === link.target)['label']}</li>
             ))}
           </ul>
         </div>

@@ -1,0 +1,19 @@
+svg.container {
+  background-color: white;
+  border: 1px solid #e2e2e2;
+}
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+line {
+  stroke: red;
+  stroke-opacity: 1;
+}
+
+.label {
+  font-size: 10px;
+  fill: #fff;
+}

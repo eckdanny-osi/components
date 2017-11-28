@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as d3 from 'd3';
 import { timeFormat } from 'd3-time-format';
-import { scaleLinear } from 'd3-scale';
-import { forceSimulation } from 'd3-force';
+import { scaleLinear, scaleOrdinal } from 'd3-scale';
+import { forceSimulation, forceLink, forceCenter, forceManyBody } from 'd3-force';
+import { select, selectAll } from 'd3-selection'
+import './style.scss';
 
 const propTypes = {};
 
@@ -42,7 +44,7 @@ export class LineChart extends React.Component {
   }
 
   componentDidMount() {
-    d3.select(this.ref)
+    select(this.ref)
     .append("circle")
     .attr("r", 5)
     .attr("cx", this.props.width / 2)
@@ -70,20 +72,20 @@ export class D3Thing extends React.Component {
 
   constructor(props) {
     super(props);
-    this.simulation = d3.forceSimulation()
-      .force("link", d3.forceLink().id(function(d) {
+    this.simulation = forceSimulation()
+      .force("link", forceLink().id(function(d) {
         return d.id;
       }))
-      .force("charge", d3.forceManyBody().strength(-100))
-      .force("center", d3.forceCenter(this.props.width / 2, this.props.height / 2))
+      .force("charge", forceManyBody().strength(-100))
+      .force("center", forceCenter(this.props.width / 2, this.props.height / 2))
       .nodes(this.props.graph.nodes);
 
     this.simulation.force("link").links(this.props.graph.links);
   }
 
   componentDidMount() {
-    const node = d3.select(".nodes").selectAll("circle");
-    const link = d3.select(".links").selectAll("line");
+    const node = select(".nodes").selectAll("circle");
+    const link = select(".links").selectAll("line");
 
     this.simulation.nodes(this.props.graph.nodes).on("tick", ticked);
 
@@ -128,14 +130,11 @@ class Links extends React.Component {
   // ref: SVGGElement;
 
   componentDidMount() {
-    const context = d3.select(this.ref);
+    const context = select(this.ref);
     context
       .selectAll("line")
       .data(this.props.links)
-      .enter().append("line")
-      .attr("stroke-width", function(d) {
-        return Math.sqrt(d.value);
-      });
+      .enter().append("line");
   }
 
   render() {
@@ -147,17 +146,14 @@ class Nodes extends React.Component {
   // ref: SVGGElement;
 
   componentDidMount() {
-    const context = d3.select(this.ref);
+    const context = select(this.ref);
     const simulation = this.props.simulation;
-    const color = d3.scaleOrdinal(d3.schemeCategory20);
+    const color = scaleOrdinal(d3.schemeCategory20);
 
     context.selectAll("circle")
       .data(this.props.nodes)
       .enter().append("circle")
       .attr("r", 5)
-      .attr("fill", function(d) {
-        return color(d.group.toString());
-      })
       .call(d3.drag()
           .on("start", onDragStart)
           .on("drag", onDrag)

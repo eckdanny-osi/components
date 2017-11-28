@@ -7,7 +7,11 @@ import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs
 
 import { Container, Row, Col } from '../';
 import RelationshipList from './';
-import data from './data.json';
+import _data from './data.json';
+
+const data = JSON.parse(JSON.stringify(_data));
+
+
 
 const JsonDump = ({
   data

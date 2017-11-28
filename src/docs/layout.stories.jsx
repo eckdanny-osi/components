@@ -19,10 +19,29 @@ import {
 
 storiesOf('Layout', module)
 
+/**
+ *
+ */
+.add('2 Column Layout', () => (
+  <div>
+    <div style={{ backgroundColor: "red" }}>
+      <Container>
+        <h3>TOP</h3>
+      </Container>
+    </div>
+    <Container>
+      <Row>
+        <Col sm={4} style={{ backgroundColor: 'orange', height: "800px" }}>LEFT</Col>
+        <Col sm={8} style={{ backgroundColor: "yellow", height: "800px"}}>RIGHT</Col>
+        </Row>
+    </Container>
+  </div>
+))
+
   /**
    *
    */
-  .add('Duh', () => (
+  .add('stuff', () => (
     <div>
       <Navbar />
       <Masthead
