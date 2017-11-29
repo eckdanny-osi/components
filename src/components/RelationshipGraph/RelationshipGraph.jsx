@@ -7,110 +7,35 @@ import { forceSimulation, forceLink, forceCenter, forceManyBody } from 'd3-force
 import { select, selectAll } from 'd3-selection'
 import './style.scss';
 
-const propTypes = {};
-
-const defaultProps = {};
-
-const RelationshipGraph = ({
-
-}) => {
-  return (
-    <h3>RelationshipGraph</h3>
-  );
-};
-
-RelationshipGraph.propTypes = propTypes;
-RelationshipGraph.defaultProps = defaultProps;
-
-export class LineChart extends React.Component {
-
-  static propTypes = {
-    width: PropTypes.number,
-    height: PropTypes.number,
-    chartId: PropTypes.string
-  };
-
-  static defaultProps = {
-    width: 800,
-    height: 300,
-    chartId: 'v1_chart'
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      width:this.props.width
-    }
-  }
-
-  componentDidMount() {
-    select(this.ref)
-    .append("circle")
-    .attr("r", 5)
-    .attr("cx", this.props.width / 2)
-    .attr("cy", this.props.height / 2)
-    .attr("fill", "red");
-  }
-
-  render() {
-    return (
-      <svg
-        className="container"
-        ref={(ref) => this.ref = ref}
-        width={this.props.width}
-        height={this.props.height}
-      />
-    );
-  }
-
-}
-
-
 export class D3Thing extends React.Component {
-  // ref: HTMLDivElement;
-  // simulation: any;
 
   constructor(props) {
     super(props);
     this.simulation = forceSimulation()
-      .force("link", forceLink().id(function(d) {
-        return d.id;
-      }))
-      .force("charge", forceManyBody().strength(-100))
-      .force("center", forceCenter(this.props.width / 2, this.props.height / 2))
+      .force('link', forceLink().id(d => d.id))
+      .force('charge', forceManyBody().strength(-100))
+      .force('center', forceCenter(this.props.width / 2, this.props.height / 2))
       .nodes(this.props.graph.nodes);
 
-    this.simulation.force("link").links(this.props.graph.links);
+    this.simulation.force('link').links(this.props.graph.links);
   }
 
   componentDidMount() {
-    const node = select(".nodes").selectAll("circle");
-    const link = select(".links").selectAll("line");
+    const node = select('.nodes').selectAll('circle');
+    const link = select('.links').selectAll('line');
 
-    this.simulation.nodes(this.props.graph.nodes).on("tick", ticked);
+    this.simulation.nodes(this.props.graph.nodes).on('tick', ticked);
 
     function ticked() {
       link
-        .attr("x1", function(d) {
-          return d.source.x;
-        })
-        .attr("y1", function(d) {
-          return d.source.y;
-        })
-        .attr("x2", function(d) {
-          return d.target.x;
-        })
-        .attr("y2", function(d) {
-          return d.target.y;
-        });
+        .attr('x1', d => d.source.x)
+        .attr('y1', d => d.source.y)
+        .attr('x2', d => d.target.x)
+        .attr('y2', d => d.target.y);
 
       node
-        .attr("cx", function(d) {
-          return d.x;
-        })
-        .attr("cy", function(d) {
-          return d.y;
-        });
+        .attr('cx', d => d.x)
+        .attr('cy', d => d.y);
     }
   }
 
@@ -118,7 +43,7 @@ export class D3Thing extends React.Component {
     const { width, height, graph } = this.props;
 
     return (
-      <svg className="container" width={width} height={height}>
+      <svg className='viz' width={width} height={height}>
         <Links links={graph.links}/>
         <Nodes nodes={graph.nodes} simulation={this.simulation}/>
       </svg>
@@ -132,13 +57,13 @@ class Links extends React.Component {
   componentDidMount() {
     const context = select(this.ref);
     context
-      .selectAll("line")
+      .selectAll('line')
       .data(this.props.links)
-      .enter().append("line");
+      .enter().append('line');
   }
 
   render() {
-    return <g className="links" ref={(ref) => this.ref = ref}/>;
+    return <g className='links' ref={ref => this.ref = ref}/>;
   }
 }
 
@@ -150,18 +75,16 @@ class Nodes extends React.Component {
     const simulation = this.props.simulation;
     const color = scaleOrdinal(d3.schemeCategory20);
 
-    context.selectAll("circle")
+    context.selectAll('circle')
       .data(this.props.nodes)
-      .enter().append("circle")
-      .attr("r", 5)
+      .enter().append('circle')
+      .attr('r', 5)
       .call(d3.drag()
-          .on("start", onDragStart)
-          .on("drag", onDrag)
-          .on("end", onDragEnd))
-      .append("title")
-        .text(function(d) {
-          return d.id;
-        });
+        .on('start', onDragStart)
+        .on('drag', onDrag)
+        .on('end', onDragEnd))
+      .append('title')
+        .text(d => d.id);
 
     function onDragStart(d) {
       if (!d3.event.active) {
@@ -186,8 +109,8 @@ class Nodes extends React.Component {
   }
 
   render() {
-    return <g className="nodes" ref={(ref) => this.ref = ref}/>;
+    return <g className='nodes' ref={(ref) => this.ref = ref}/>;
   }
 }
 
-export default RelationshipGraph;
+export default D3Thing;
