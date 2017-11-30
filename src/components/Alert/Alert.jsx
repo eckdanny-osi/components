@@ -20,8 +20,14 @@ function AlertHOC(Component) {
   return class Alert extends Component {
     static displayName = 'Alert';
     render() {
-      const { onDismiss, closeLabel, className, children, ...props } =
-        this.props;
+      const {
+        onDismiss,
+        closeLabel,
+        className,
+        children,
+        ...props
+      } = this.props;
+
       const [bsProps, elementProps] = splitBsProps(props);
 
       const dismissable = !!onDismiss;

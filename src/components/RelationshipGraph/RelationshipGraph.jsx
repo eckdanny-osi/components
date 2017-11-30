@@ -5,7 +5,7 @@ import { timeFormat } from 'd3-time-format';
 import { scaleLinear, scaleOrdinal } from 'd3-scale';
 import { forceSimulation, forceLink, forceCenter, forceManyBody } from 'd3-force';
 import { select, selectAll } from 'd3-selection'
-import './style.scss';
+// import './style.scss';  // @todo(dce): don't use css modules
 
 export class D3Thing extends React.Component {
 
