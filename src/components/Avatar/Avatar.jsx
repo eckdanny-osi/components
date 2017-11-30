@@ -12,10 +12,6 @@ const defaultProps = {
   size: 'md',
 };
 
-const AvatarImg = ({imgUrl, classes}) => <img src={imgUrl} className={classNames(classes)} />;
-
-const AvatarBlank = ({classes}) => <Icon name="user-circle" size="4x" className={classNames(classes)} />;
-
 const Avatar = ({
   imgUrl,
   size
