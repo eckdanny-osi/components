@@ -14,7 +14,7 @@ $fa-font-path:   "~font-awesome/fonts";
 
 // Core CSS
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/type";  // need for [un]ordered list styles
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/code";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/grid";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/tables";

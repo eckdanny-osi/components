@@ -1,3 +1,5 @@
+/* istanbul ignore */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as d3 from 'd3';
@@ -5,7 +7,8 @@ import { timeFormat } from 'd3-time-format';
 import { scaleLinear, scaleOrdinal } from 'd3-scale';
 import { forceSimulation, forceLink, forceCenter, forceManyBody } from 'd3-force';
 import { select, selectAll } from 'd3-selection'
-// import './style.scss';  // @todo(dce): don't use css modules
+// @todo(dce): don't use css modules b/c it breaks Jest
+// import './style.scss';
 
 export class D3Thing extends React.Component {
 

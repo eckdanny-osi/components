@@ -6,7 +6,7 @@ import { linkTo } from '@storybook/addon-links';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
 
 import { Container, Row, Col } from '../';
-import RelationshipList from './';
+import { RelationshipList } from '../';
 import _data from './data.json';
 
 const data = JSON.parse(JSON.stringify(_data));

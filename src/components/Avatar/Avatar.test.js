@@ -18,4 +18,8 @@ describe('<Avatar />', () => {
     expect(wrapper.find('img').exists()).toBe(true);
     expect(wrapper.find('img').props().src).toEqual('my-img-url');
   });
+  it('should add CSS class for avatar size', () => {
+    const wrapper = shallow(<Avatar size="sm" />);
+    expect(wrapper.hasClass('avatar-sm')).toBe(true);
+  });
 });
