@@ -1,7 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Alert, utils } from 'react-bootstrap';
+import { Alert, AlertProps, utils } from 'react-bootstrap';
 import { Icon, CloseButton } from '../'
+
+// @todo(dce): use contextIcons keys as boolean props
 
 const {
   getClassSet,
@@ -16,6 +18,33 @@ const contextIcons = {
   danger: 'warning',
 };
 
+
+function contextColorize(Component) {
+  const component = ({
+    primary,
+    secondary,
+    success,
+    info,
+    warning,
+    danger,
+    bsStyle: bsStyleOld,
+    ...props
+  }) => {
+    const bsStyle = primary && 'primary' ||
+                    success && 'success' ||
+                    info && 'info' ||
+                    danger && 'danger' ||
+                    warning && 'warning' ||
+                    'default';
+    return (
+      <Component bsStyle={bsStyle} {...props} />
+    )
+  };
+  component.displayName = Component.displayName;
+  return component;
+}
+
+
 function AlertHOC(Component) {
   return class Alert extends Component {
     static displayName = 'Alert';
@@ -25,10 +54,22 @@ function AlertHOC(Component) {
         closeLabel,
         className,
         children,
+        success,
+        info,
+        warning,
+        danger,
+        bsStyle: bsStyleMeh,
         ...props
       } = this.props;
 
-      const [bsProps, elementProps] = splitBsProps(props);
+      // console.log(props.bsStyle);
+      const bsStyle = success && 'success' ||
+                      info && 'info' ||
+                      danger && 'danger' ||
+                      warning && 'warning' ||
+                      'info';
+
+      const [bsProps, elementProps] = splitBsProps({ bsStyle, ...props });
 
       const dismissable = !!onDismiss;
       const classes = {
