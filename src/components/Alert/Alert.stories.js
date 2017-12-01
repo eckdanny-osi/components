@@ -2,7 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
+import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
+
 import { Button, Alert } from '../';
+import { BS_CONTEXTS_NAMES, BS_CONTEXT_NAMES } from '../../utils';
 
 class AlertDismissable extends React.Component {
   constructor(props) {
@@ -36,6 +39,27 @@ class AlertDismissable extends React.Component {
 
 
 storiesOf('Alerts', module)
+
+  .addDecorator(withKnobs)
+
+  /**
+   *
+   */
+  .add('alert', () => {
+    const contexts = [
+      BS_CONTEXT_NAMES.SUCCESS,
+      BS_CONTEXT_NAMES.INFO,
+      BS_CONTEXT_NAMES.WARNING,
+      BS_CONTEXT_NAMES.DANGER
+    ].reduce((aggr, d) => ({ ...aggr,  [d]: boolean(d, false)  }), {});
+    return (
+      <Alert
+        {...contexts}
+        onDismiss={action('dismissed')}
+        children={text('content', 'Pay Attention!')}
+      />
+    )
+  })
 
   /**
    *
