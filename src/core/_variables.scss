@@ -633,6 +633,13 @@ $alert-padding:               15px !default;
 $alert-border-radius:         $border-radius-base !default;
 $alert-link-font-weight:      bold !default;
 
+$alert-margin-bottom:         5px;
+$alert-border-width:          2px;
+$alert-padding-y:             10px;
+$alert-padding-x:             15px;
+$alert-border-width:          1px;
+$alert-border-color:        #c4c4c4;
+
 $alert-success-bg:            $state-success-bg !default;
 $alert-success-text:          $state-success-text !default;
 $alert-success-border:        $state-success-border !default;
@@ -655,7 +662,6 @@ $alert-colors: (
   "warning":    $brand-warning,
   "danger":     $brand-danger,
 );
-
 
 //== Progress bars
 //
