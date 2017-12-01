@@ -1,7 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import getDisplayName from 'react-display-name';
-import { Alert, AlertProps, utils } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { Alert as AlertRBS, utils } from 'react-bootstrap';
 import { Icon, CloseButton } from '../'
 import { bsContextStyle, BS_CONTEXT_NAMES } from '../../utils';
 
@@ -64,6 +65,9 @@ function AlertHOC(Component) {
   }
 }
 
-export const CWDSAlert = AlertHOC(Alert);
+export const CWDSAlert = AlertHOC(AlertRBS);
 
-export default bsContextStyle(CWDSAlert, 'info');
+const Alert = bsContextStyle(CWDSAlert, 'info');
+Alert.propTypes = { ...AlertRBS.propTypes };
+Alert.displayName = 'Alert';
+export default Alert;

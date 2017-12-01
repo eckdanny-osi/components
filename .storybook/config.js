@@ -25,7 +25,7 @@ configure(loadStoriesDynamic, module);
 setDefaults({
   header: false, // Toggles display of header with component name and description
   inline: true, // Displays info inline vs click button to view
-  source: false, // Displays the source of story Component
+  source: true, // Displays the source of story Component
   propTables: [/* Components used in story */], // displays Prop Tables with this components
   propTablesExclude: [], // Exclude Components from being shown in Prop Tables section
   styles: {}, // Overrides styles of addon

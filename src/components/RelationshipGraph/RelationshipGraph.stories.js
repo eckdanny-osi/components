@@ -12,6 +12,8 @@ import { D3Thing } from './RelationshipGraph';
 import _data from '../RelationshipList/data.json';
 const data = JSON.parse(JSON.stringify(_data));
 
+import './style.scss';
+
 storiesOf('Relationships', module)
 
   /**

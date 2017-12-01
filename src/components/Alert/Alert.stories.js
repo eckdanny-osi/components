@@ -1,11 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
+
 
 import { Button, Alert } from '../';
 import { BS_CONTEXTS_NAMES, BS_CONTEXT_NAMES } from '../../utils';
+import { withInfo } from '@storybook/addon-info';
 
 class AlertDismissable extends React.Component {
   constructor(props) {
@@ -37,7 +38,6 @@ class AlertDismissable extends React.Component {
   }
 }
 
-
 storiesOf('Alerts', module)
 
   .addDecorator(withKnobs)
@@ -45,7 +45,7 @@ storiesOf('Alerts', module)
   /**
    *
    */
-  .add('alert', () => {
+  .add('Alert', withInfo()(() => {
     const contexts = [
       BS_CONTEXT_NAMES.SUCCESS,
       BS_CONTEXT_NAMES.INFO,
@@ -59,12 +59,12 @@ storiesOf('Alerts', module)
         children={text('content', 'Pay Attention!')}
       />
     )
-  })
+  }))
 
   /**
    *
    */
-  .add('Colors', () => (
+  .add('colors', () => (
     <div>
       <Alert success><strong>Success!</strong> You survived</Alert>
       <Alert info><strong>Info</strong> Just some info...</Alert>
@@ -73,14 +73,14 @@ storiesOf('Alerts', module)
     </div>
   ))
 
-  .add('Dismissible', () => (
+  .add('dismissible', () => (
     <div>
       <AlertDismissable danger>Boss is comming... Hide the alert!</AlertDismissable>
       <AlertDismissable info>The sky is blue</AlertDismissable>
     </div>
   ))
 
-  .add('Overflow', () => (
+  .add('overflow', () => (
     <div>
       <Alert success>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus venenatis auctor. Ut vestibulum aliquet fermentum. Curabitur a imperdiet risus. Aenean vulputate, est bibendum faucibus consequat, est tortor consectetur dolor, ac egestas arcu ligula sed metus. Aenean est metus, tincidunt cursus velit eu, lacinia luctus lorem. Etiam fermentum nibh ultrices facilisis bibendum. Integer eu luctus mi. Cras scelerisque diam in metus molestie aliquam. Nunc commodo metus sed est vulputate fermentum. Phasellus at nunc sit amet elit maximus euismod. Phasellus vitae imperdiet erat, cursus pretium orci. Maecenas nec sapien elit. Etiam congue risus non enim volutpat, vitae euismod enim condimentum. Sed malesuada rutrum lectus et dignissim.</Alert>
       <AlertDismissable danger>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus venenatis auctor. Ut vestibulum aliquet fermentum. Curabitur a imperdiet risus. Aenean vulputate, est bibendum faucibus consequat, est tortor consectetur dolor, ac egestas arcu ligula sed metus. Aenean est metus, tincidunt cursus velit eu, lacinia luctus lorem. Etiam fermentum nibh ultrices facilisis bibendum. Integer eu luctus mi. Cras scelerisque diam in metus molestie aliquam. Nunc commodo metus sed est vulputate fermentum. Phasellus at nunc sit amet elit maximus euismod. Phasellus vitae imperdiet erat, cursus pretium orci. Maecenas nec sapien elit. Etiam congue risus non enim volutpat, vitae euismod enim condimentum. Sed malesuada rutrum lectus et dignissim.</AlertDismissable>

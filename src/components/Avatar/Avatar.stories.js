@@ -2,8 +2,9 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs';
+
 
 import Avatar from './Avatar';
 
@@ -15,12 +16,12 @@ storiesOf('Avatars', module)
   /**
    *
    */
-  .add('Avatar', () => (
+  .add('Avatar', withInfo()(() => (
     <Avatar
       size={select('Size', ['sm', 'md', 'lg'], 'lg')}
       imgUrl={text('imgUrl', 'https://www.famousbirthdays.com/headshots/tom-hanks-5.jpg')}
     />
-  ))
+  )))
 
   /**
    *
