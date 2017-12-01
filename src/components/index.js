@@ -1,4 +1,4 @@
-import * as _utils from '../utils';
+import * as utils from '../utils';
 export * from './Alert';
 export * from './Avatar';
 export * from './Badge';
@@ -33,4 +33,4 @@ export * from './RelationshipList';
 export * from './RelationshipGraph';
 export * from './JsonDump';
 export * from './Tabs';
-export { _utils as utils };
+export { utils };
