@@ -32,10 +32,8 @@ $fa-font-path:   "~font-awesome/fonts";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/pagination";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/pager";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/labels";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/badges";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/thumbnails";
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap/alerts";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/progress-bars";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/media";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/list-group";
@@ -61,7 +59,9 @@ $fa-font-path:   "~font-awesome/fonts";
 
 @import "~font-awesome/scss/font-awesome";
 @import "./components/Masthead/masthead";
+
 @import "./components/Alert/alert";
-@import "./components/Button/buttons";
 @import "./components/Avatar/avatar";
+@import "./components/Badge/badge";
+@import "./components/Button/button";
 @import "./components/Card/cards";
