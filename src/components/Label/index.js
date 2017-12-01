@@ -1,1 +1,1 @@
-export { Label } from 'react-bootstrap';
+export { default as Label } from './Label';

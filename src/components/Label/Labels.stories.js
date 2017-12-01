@@ -34,11 +34,11 @@ storiesOf('Labels', module)
    */
   .add('colors', () => (
     <div>
-      <Label bsStyle="default">Default</Label>&nbsp;
-      <Label bsStyle="primary">Primary</Label>&nbsp;
-      <Label bsStyle="success">Success</Label>&nbsp;
-      <Label bsStyle="info">Info</Label>&nbsp;
-      <Label bsStyle="warning">Warning</Label>&nbsp;
-      <Label bsStyle="danger">Danger</Label>
+      <Label>Default</Label>{' '}
+      <Label primary>Primary</Label>{' '}
+      <Label success>Success</Label>{' '}
+      <Label info>Info</Label>{' '}
+      <Label warning>Warning</Label>{' '}
+      <Label danger>Danger</Label>
     </div>
   ));
