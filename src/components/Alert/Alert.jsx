@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Alert, AlertProps, utils } from 'react-bootstrap';
 import { Icon, CloseButton } from '../'
+import { bsContextStyle, BS_CONTEXT_NAMES } from '../../utils';
 
 // @todo(dce): use contextIcons keys as boolean props
 
@@ -12,38 +13,11 @@ const {
 } = utils.bootstrapUtils;
 
 const contextIcons = {
-  success: 'check-circle',
-  info: 'info-circle',
-  warning: 'warning',
-  danger: 'warning',
+  [BS_CONTEXT_NAMES.SUCCESS]: 'check-circle',
+  [BS_CONTEXT_NAMES.INFO]: 'info-circle',
+  [BS_CONTEXT_NAMES.WARNING]: 'warning',
+  [BS_CONTEXT_NAMES.DANGER]: 'warning',
 };
-
-
-function contextColorize(Component) {
-  const component = ({
-    primary,
-    secondary,
-    success,
-    info,
-    warning,
-    danger,
-    bsStyle: bsStyleOld,
-    ...props
-  }) => {
-    const bsStyle = primary && 'primary' ||
-                    success && 'success' ||
-                    info && 'info' ||
-                    danger && 'danger' ||
-                    warning && 'warning' ||
-                    'default';
-    return (
-      <Component bsStyle={bsStyle} {...props} />
-    )
-  };
-  component.displayName = Component.displayName;
-  return component;
-}
-
 
 function AlertHOC(Component) {
   return class Alert extends Component {
@@ -54,22 +28,10 @@ function AlertHOC(Component) {
         closeLabel,
         className,
         children,
-        success,
-        info,
-        warning,
-        danger,
-        bsStyle: bsStyleMeh,
         ...props
       } = this.props;
 
-      // console.log(props.bsStyle);
-      const bsStyle = success && 'success' ||
-                      info && 'info' ||
-                      danger && 'danger' ||
-                      warning && 'warning' ||
-                      'info';
-
-      const [bsProps, elementProps] = splitBsProps({ bsStyle, ...props });
+      const [bsProps, elementProps] = splitBsProps(props);
 
       const dismissable = !!onDismiss;
       const classes = {
@@ -101,4 +63,6 @@ function AlertHOC(Component) {
   }
 }
 
-export default AlertHOC(Alert);
+export const AlertWrapped = AlertHOC(Alert);
+
+export default bsContextStyle(AlertWrapped, 'info');

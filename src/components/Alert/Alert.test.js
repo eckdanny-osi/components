@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Alert, Icon, CloseButton } from '../';
+import { AlertWrapped as Alert } from './Alert';
+import { Icon, CloseButton } from '../';
 
 describe('<Alert />', () => {
   it('should render', () => {

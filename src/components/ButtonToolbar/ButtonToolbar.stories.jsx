@@ -20,13 +20,13 @@ storiesOf('Buttons', module)
   .add('Colors', () => (
     <ButtonToolbar>
       <Button>Default</Button>
-      <Button bsStyle="primary">Primary</Button>
-      {/* <Button bsStyle="secondary">Secondary</Button> */}
-      <Button bsStyle="success">Success</Button>
-      <Button bsStyle="info">Info</Button>
-      <Button bsStyle="warning">Warning</Button>
-      <Button bsStyle="danger">Danger</Button>
-      <Button bsStyle="link">Link</Button>
+      <Button primary>Primary</Button>
+      {/* <Button secondary>Secondary</Button> */}
+      <Button success>Success</Button>
+      <Button info>Info</Button>
+      <Button warning>Warning</Button>
+      <Button danger>Danger</Button>
+      <Button link>Link</Button>
     </ButtonToolbar>
   ))
 
@@ -36,19 +36,19 @@ storiesOf('Buttons', module)
   .add('Sizes', () => (
     <div>
       <ButtonToolbar>
-        <Button bsStyle="primary" bsSize="large">Large button</Button>
+        <Button primary bsSize="large">Large button</Button>
         <Button bsSize="large">Large button</Button>
       </ButtonToolbar>
       <ButtonToolbar>
-        <Button bsStyle="primary">Default button</Button>
+        <Button primary>Default button</Button>
         <Button>Default button</Button>
       </ButtonToolbar>
       <ButtonToolbar>
-        <Button bsStyle="primary" bsSize="small">Small button</Button>
+        <Button primary bsSize="small">Small button</Button>
         <Button bsSize="small">Small button</Button>
       </ButtonToolbar>
       <ButtonToolbar>
-        <Button bsStyle="primary" bsSize="xsmall">Extra small button</Button>
+        <Button primary bsSize="xsmall">Extra small button</Button>
         <Button bsSize="xsmall">Extra small button</Button>
       </ButtonToolbar>
     </div>
@@ -59,7 +59,7 @@ storiesOf('Buttons', module)
    */
   .add('Blocks', () => (
     <div>
-      <Button bsStyle="primary" bsSize="large" block>Block level button</Button>
+      <Button primary bsSize="large" block>Block level button</Button>
       <Button bsSize="large" block>Block level button</Button>
     </div>
   ))
@@ -71,17 +71,17 @@ storiesOf('Buttons', module)
     <div>
       <h3>Normal</h3>
       <ButtonToolbar>
-        <Button bsStyle="primary" bsSize="large">Primary button</Button>
+        <Button primary bsSize="large">Primary button</Button>
         <Button bsSize="large">Button</Button>
       </ButtonToolbar>
       <h3>Active</h3>
       <ButtonToolbar>
-        <Button bsStyle="primary" bsSize="large" active>Primary button</Button>
+        <Button primary bsSize="large" active>Primary button</Button>
         <Button bsSize="large" active>Button</Button>
       </ButtonToolbar>
       <h3>Disabled</h3>
       <ButtonToolbar>
-        <Button bsStyle="primary" bsSize="large" disabled>Primary button</Button>
+        <Button primary bsSize="large" disabled>Primary button</Button>
         <Button bsSize="large" disabled>Button</Button>
       </ButtonToolbar>
     </div>
