@@ -1,4 +1,5 @@
 import React from 'react';
+import getDisplayName from 'react-display-name';
 
 export const BS_CONTEXT_NAMES = {
   DANGER: 'danger',
@@ -39,6 +40,6 @@ export const bsContextStyle = (Component, defaultValue='default', contexts) => {
       <Component bsStyle={bsStyle} {...props} />
     )
   };
-  component.displayName = Component.displayName;
+  component.displayName = `bsStyle(${getDisplayName(Component)})`;
   return component;
 };
