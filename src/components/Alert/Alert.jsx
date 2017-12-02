@@ -68,6 +68,14 @@ function AlertHOC(Component) {
 export const CWDSAlert = AlertHOC(AlertRBS);
 
 const Alert = bsContextStyle(CWDSAlert, 'info');
-Alert.propTypes = { ...AlertRBS.propTypes };
+Alert.propTypes = {
+  ...AlertRBS.propTypes,
+  primary: PropTypes.bool,
+  success: PropTypes.bool,
+  danger: PropTypes.bool,
+  warning: PropTypes.bool,
+  info: PropTypes.bool,
+  default: PropTypes.bool,
+};
 Alert.displayName = 'Alert';
 export default Alert;

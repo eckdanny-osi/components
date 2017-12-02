@@ -17,7 +17,6 @@ $fa-font-path:   "~font-awesome/fonts";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/type";  // need for [un]ordered list styles
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/code";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/grid";
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap/tables";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/forms";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/buttons";
 
@@ -65,3 +64,4 @@ $fa-font-path:   "~font-awesome/fonts";
 @import "./components/Badge/badge";
 @import "./components/Button/button";
 @import "./components/Card/cards";
+@import "./components/Table/tables.scss";

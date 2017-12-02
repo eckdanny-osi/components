@@ -10,6 +10,7 @@ export const BS_CONTEXT_NAMES = {
   WARNING: 'warning',
 };
 
+// Order determines priority
 export const BS_CONTEXTS = [
   BS_CONTEXT_NAMES.DANGER,
   BS_CONTEXT_NAMES.SUCCESS,
@@ -19,9 +20,9 @@ export const BS_CONTEXTS = [
   BS_CONTEXT_NAMES.DEFAULT,
 ]
 
-export const bsContextStyle = (Component, defaultValue='default', contexts) => {
+export const bsContextStyle = (Component, defaultValue='default', contexts=false) => {
   const component = ({
-    bsStyle: bsStyleOld,
+    bsStyle: bsStyleRBS,
     ...props
   }) => {
 

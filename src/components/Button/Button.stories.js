@@ -3,12 +3,20 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
+import { withInfo } from '@storybook/addon-info';
+import { withKnobs } from '@storybook/addon-knobs';
 
 import { Button, ButtonToolbar, Icon } from '../';
 
 storiesOf('Buttons', module)
 
-.add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
+.addDecorator(withKnobs)
+.add('Button', withInfo()(() => (
+  <Button
+    onClick={action('clicked')}
+    children="Hello Button"
+    />
+)))
 
 .add('with Icon', () => (
   <Button onClick={action('clicked')}><Icon name="rocket" /> Click Me!</Button>
@@ -36,20 +44,23 @@ storiesOf('Buttons', module)
   .add('Sizes', () => (
     <div>
       <ButtonToolbar>
-        <Button primary bsSize="large">Large button</Button>
-        <Button bsSize="large">Large button</Button>
+        <Button primary lg>Large button</Button>
+        <Button lg>Large button</Button>
       </ButtonToolbar>
+      <br />
       <ButtonToolbar>
         <Button primary>Default button</Button>
         <Button>Default button</Button>
       </ButtonToolbar>
+      <br />
       <ButtonToolbar>
-        <Button primary bsSize="small">Small button</Button>
-        <Button bsSize="small">Small button</Button>
+        <Button primary sm>Small button</Button>
+        <Button sm>Small button</Button>
       </ButtonToolbar>
+      <br />
       <ButtonToolbar>
-        <Button primary bsSize="xsmall">Extra small button</Button>
-        <Button bsSize="xsmall">Extra small button</Button>
+        <Button primary xs>Extra small button</Button>
+        <Button xs>Extra small button</Button>
       </ButtonToolbar>
     </div>
   ))

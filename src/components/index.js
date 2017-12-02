@@ -33,4 +33,5 @@ export * from './RelationshipList';
 export * from './RelationshipGraph';
 export * from './JsonDump';
 export * from './Tabs';
+export * from './Table';
 export { utils };
