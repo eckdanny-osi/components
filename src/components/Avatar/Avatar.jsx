@@ -5,14 +5,8 @@ import { Icon } from '../';
 
 const propTypes = {
 
-  /**
-   * Suck my balls
-   */
   imgUrl: PropTypes.string,
 
-  /**
-   * Fuck you, asshole!
-   */
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
 };
 
