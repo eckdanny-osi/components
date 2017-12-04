@@ -5,32 +5,19 @@ import { default as Alert, AlertRBS } from './Alert';
 import { Icon, CloseButton } from '../';
 
 describe('<Alert />', () => {
-  fit('should render AlertRBS', () => {
-    // let component;
-    // expect(() => {
-      // component = shallow(<Alert />);
-    // }).not.toThrow();
-    // console.log(component.debug());
-    // expect(component.type()).toBe(AlertRBS);
-    // expect(component.find(AlertRBS)).toBe(true);
-    const wrapper = shallow(<Alert />);
-    console.log(wrapper.debug());
-    console.log(wrapper.type());
-    console.log(AlertRBS);
+  it('should render', () => {
+    expect(() => shallow(<Alert />)).not.toThrow();
   });
-  xit('should pass a default prop to <AlertRBS />', () => {
-
-  });
-  xit('should have an alert role', () => {
-    expect(shallow(<Alert />).props().role).toBe('alert');
+  it('should have an alert role', () => {
+    expect(shallow(<Alert />).dive().props().role).toBe('alert');
   })
-  xit('should have a default bootstrap context class', () => {
-    const wrapper = shallow(<Alert />);
+  it('should have a default bootstrap context class', () => {
+    const wrapper = shallow(<Alert />).dive();
     expect(wrapper.hasClass('alert')).toBe(true);
     expect(wrapper.hasClass('alert-info')).toBe(true);
   });
-  xit('should render Icons', () => {
-    const wrapper = shallow(<Alert />);
+  it('should render Icons', () => {
+    const wrapper = shallow(<Alert />).dive();
     wrapper.setProps({ bsStyle: 'info' });
     expect(wrapper.find(Icon).props().name).toBe('info-circle');
     wrapper.setProps({ bsStyle: 'success' });
@@ -40,9 +27,9 @@ describe('<Alert />', () => {
     wrapper.setProps({ bsStyle: 'danger' });
     expect(wrapper.find(Icon).props().name).toBe('warning');
   });
-  xit('should render a CloseButton when onDismiss is provided', () => {
+  it('should render a CloseButton when onDismiss is provided', () => {
     const onDismiss = jasmine.createSpy('onDismiss');
-    const wrapper = shallow(<Alert onDismiss={onDismiss} />);
+    const wrapper = shallow(<Alert onDismiss={onDismiss} />).dive();
     expect(wrapper.find(CloseButton).exists()).toBe(true);
     expect(wrapper.find(CloseButton).props().onClick).toBe(onDismiss);
   });

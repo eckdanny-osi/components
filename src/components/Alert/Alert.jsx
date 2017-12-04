@@ -13,15 +13,6 @@ const {
 } = utils.bootstrapUtils;
 
 const { bsStyle, ...AlertRBSprops } = AlertRBS.propTypes;
-const propTypes = {
-  ...AlertRBSprops,
-  ...[
-    BS_CONTEXT_NAMES.SUCCESS,
-    BS_CONTEXT_NAMES.INFO,
-    BS_CONTEXT_NAMES.WARNING,
-    BS_CONTEXT_NAMES.DANGER,
-  ].reduce((aggr, d) => ({ ...aggr, [d]: PropTypes.bool }), {})
-};
 
 function alertHOC(Component) {
   return class Alert extends Component {
@@ -32,6 +23,7 @@ function alertHOC(Component) {
       [BS_CONTEXT_NAMES.WARNING]:   'warning',
       [BS_CONTEXT_NAMES.DANGER]:    'warning',
     };
+    static propTypes = Component.propTypes;
     render() {
       const {
         onDismiss,
@@ -73,10 +65,12 @@ function alertHOC(Component) {
   }
 }
 
-const Alert = bsContextStyle(alertHOC(AlertRBS), 'info');
-
-Alert.propTypes = propTypes;
-Alert.defaultProps = {};
+const Alert = bsContextStyle(alertHOC(AlertRBS), BS_CONTEXT_NAMES.INFO, [
+  BS_CONTEXT_NAMES.DANGER,
+  BS_CONTEXT_NAMES.WARNING,
+  BS_CONTEXT_NAMES.SUCCESS,
+  BS_CONTEXT_NAMES.INFO
+]);
 Alert.displayName = 'Alert';
 
 export default Alert;

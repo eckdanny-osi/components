@@ -1,5 +1,6 @@
 import React from 'react';
 import getDisplayName from 'react-display-name';
+import PropTypes from 'prop-types';
 
 export const BS_CONTEXT_NAMES = {
   DANGER: 'danger',
@@ -20,17 +21,16 @@ export const BS_CONTEXTS = [
   BS_CONTEXT_NAMES.DEFAULT,
 ]
 
-export const bsContextStyle = (Component, defaultValue=BS_CONTEXT_NAMES.DEFAULT, contexts=false) => {
-  // TODO: DO NOT DO PROPTYPE STUFF IN HERE
-  // const propTypes = {};
-  // for (let prop in Component.propTypes) {
-  //   if ('bsStyle' !== prop) {
-  //     propTypes[prop] = Component.propTypes[prop];
-  //   }
-  // }
-  const component = (props) => {
+export const bsContextStyle = (Component, defaultValue=BS_CONTEXT_NAMES.DEFAULT, contexts=BS_CONTEXTS) => {
 
-    contexts = contexts || BS_CONTEXTS;
+  const {
+    bsStyle,
+    ...originalPropTypes
+  } = Component.propTypes;
+
+  const newPropsTypes = contexts.reduce((aggr, d) => ({ ...aggr, [d]: PropTypes.bool }), {});
+
+  const component = props => {
 
     let bsStyle;
     for (let context of contexts) {
@@ -52,8 +52,12 @@ export const bsContextStyle = (Component, defaultValue=BS_CONTEXT_NAMES.DEFAULT,
       <Component bsStyle={bsStyle} {...newProps} />
     )
   };
-  component.displayName = `bsStyle(${getDisplayName(Component)})`;
-  // component.propTypes = Component.propTypes
-  // component.propTypes = propTypes;
+
+  component.displayName = `bsStyled(${getDisplayName(Component)})`;
+  component.propTypes = {
+    ...originalPropTypes,
+    ...newPropsTypes,
+  };
+
   return component;
 };
