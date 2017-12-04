@@ -20,11 +20,15 @@ export const BS_CONTEXTS = [
   BS_CONTEXT_NAMES.DEFAULT,
 ]
 
-export const bsContextStyle = (Component, defaultValue='default', contexts=false) => {
-  const component = ({
-    bsStyle: bsStyleRBS,
-    ...props
-  }) => {
+export const bsContextStyle = (Component, defaultValue=BS_CONTEXT_NAMES.DEFAULT, contexts=false) => {
+  // TODO: DO NOT DO PROPTYPE STUFF IN HERE
+  // const propTypes = {};
+  // for (let prop in Component.propTypes) {
+  //   if ('bsStyle' !== prop) {
+  //     propTypes[prop] = Component.propTypes[prop];
+  //   }
+  // }
+  const component = (props) => {
 
     contexts = contexts || BS_CONTEXTS;
 
@@ -37,10 +41,19 @@ export const bsContextStyle = (Component, defaultValue='default', contexts=false
     }
     bsStyle = bsStyle || defaultValue;
 
+    const newProps = {};
+    for (const prop in props) {
+      if (!contexts.includes(prop)) {
+        newProps[prop] = props[prop];
+      }
+    }
+
     return (
-      <Component bsStyle={bsStyle} {...props} />
+      <Component bsStyle={bsStyle} {...newProps} />
     )
   };
   component.displayName = `bsStyle(${getDisplayName(Component)})`;
+  // component.propTypes = Component.propTypes
+  // component.propTypes = propTypes;
   return component;
 };

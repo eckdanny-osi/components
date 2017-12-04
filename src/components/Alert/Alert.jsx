@@ -4,9 +4,7 @@ import getDisplayName from 'react-display-name';
 import PropTypes from 'prop-types';
 import { Alert as AlertRBS, utils } from 'react-bootstrap';
 import { Icon, CloseButton } from '../'
-import { bsContextStyle, BS_CONTEXT_NAMES } from '../../utils';
-
-// @todo(dce): use contextIcons keys as boolean props
+import { bsContextStyle, BS_CONTEXT_NAMES, BS_CONTEXTS } from '../../utils';
 
 const {
   getClassSet,
@@ -14,16 +12,26 @@ const {
   splitBsProps,
 } = utils.bootstrapUtils;
 
-const contextIcons = {
-  [BS_CONTEXT_NAMES.SUCCESS]: 'check-circle',
-  [BS_CONTEXT_NAMES.INFO]: 'info-circle',
-  [BS_CONTEXT_NAMES.WARNING]: 'warning',
-  [BS_CONTEXT_NAMES.DANGER]: 'warning',
+const { bsStyle, ...AlertRBSprops } = AlertRBS.propTypes;
+const propTypes = {
+  ...AlertRBSprops,
+  ...[
+    BS_CONTEXT_NAMES.SUCCESS,
+    BS_CONTEXT_NAMES.INFO,
+    BS_CONTEXT_NAMES.WARNING,
+    BS_CONTEXT_NAMES.DANGER,
+  ].reduce((aggr, d) => ({ ...aggr, [d]: PropTypes.bool }), {})
 };
 
-function AlertHOC(Component) {
+function alertHOC(Component) {
   return class Alert extends Component {
-    static displayName = 'Alert';
+    static displayName = 'AlertCWDS';
+    static contextIcons = {
+      [BS_CONTEXT_NAMES.SUCCESS]:   'check-circle',
+      [BS_CONTEXT_NAMES.INFO]:      'info-circle',
+      [BS_CONTEXT_NAMES.WARNING]:   'warning',
+      [BS_CONTEXT_NAMES.DANGER]:    'warning',
+    };
     render() {
       const {
         onDismiss,
@@ -48,7 +56,7 @@ function AlertHOC(Component) {
           className={classNames(className, classes)}
         >
           <div className="alert-icon">
-            <Icon name={contextIcons[bsProps.bsStyle]} />
+            <Icon name={Alert.contextIcons[bsProps.bsStyle]} />
           </div>
           <div className="alert-body">
             {dismissable && (
@@ -65,17 +73,10 @@ function AlertHOC(Component) {
   }
 }
 
-export const CWDSAlert = AlertHOC(AlertRBS);
+const Alert = bsContextStyle(alertHOC(AlertRBS), 'info');
 
-const Alert = bsContextStyle(CWDSAlert, 'info');
-Alert.propTypes = {
-  ...AlertRBS.propTypes,
-  primary: PropTypes.bool,
-  success: PropTypes.bool,
-  danger: PropTypes.bool,
-  warning: PropTypes.bool,
-  info: PropTypes.bool,
-  default: PropTypes.bool,
-};
+Alert.propTypes = propTypes;
+Alert.defaultProps = {};
 Alert.displayName = 'Alert';
+
 export default Alert;
