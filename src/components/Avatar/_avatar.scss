@@ -24,8 +24,7 @@
   }
 }
 
-.avatar-sm { @include avatar($avatar-size-sm, 2px) }
-
-.avatar-md { @include avatar($avatar-size-md, 4px) }
-
-.avatar-lg { @include avatar($avatar-size-lg, 5px) }
+.avatar-xs { @include avatar($avatar-size-xs, 2px) }
+.avatar-sm { @include avatar($avatar-size-sm, 4px) }
+.avatar-md { @include avatar($avatar-size-md, 5px) }
+.avatar-lg { @include avatar($avatar-size-lg, 8px) }

@@ -5,7 +5,7 @@ import { Icon } from '../';
 
 const propTypes = {
   imgUrl: PropTypes.string,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
 };
 
 const defaultProps = {

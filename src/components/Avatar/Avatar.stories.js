@@ -18,7 +18,7 @@ storiesOf('Avatars', module)
    */
   .add('Avatar', withInfo()(() => (
     <Avatar
-      size={select('Size', ['sm', 'md', 'lg'], 'lg')}
+      size={select('Size', ['xs', 'sm', 'md', 'lg'], 'lg')}
       imgUrl={text('imgUrl', 'https://www.famousbirthdays.com/headshots/tom-hanks-5.jpg')}
     />
   )))
@@ -28,11 +28,14 @@ storiesOf('Avatars', module)
    */
   .add('sizes', () => (
     <div>
+      <p>Extra Small</p>
+      <Avatar size="xs" />
+      <Avatar size="xs" imgUrl={imgUrl} />
       <p>Small</p>
       <Avatar size="sm" />
       <Avatar size="sm" imgUrl={imgUrl} />
       <p>Medium (default)</p>
-      <Avatar />
+      <Avatar/>
       <Avatar imgUrl={imgUrl} />
       <p>Large</p>
       <Avatar size="lg" />
