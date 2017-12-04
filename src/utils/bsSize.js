@@ -22,23 +22,15 @@ export const bsSizeHOC = (Component, defaultValue='', sizes=false) => {
     ...props
   }) => {
 
-    sizes = sizes || [ [ 'lg', 'large' ], [ 'sm', 'small' ], [ 'xs', 'xsmall' ] ];
+    const bsSize = lg && 'large' ||
+                   sm && 'small' ||
+                   xs && 'xsmall';
 
-    let bsSize;
-    // for (let [key, val] of sizes) {
-    //   if (props[key]) {
-    //     bsSize = val;
-    //     break;
-    //   }
-    // }
-    bsSize = lg && 'large' ||
-             sm && 'small' ||
-             xs && 'xsmall';
-    bsSize = bsSize || defaultValue;
+    const newProps = { bsSize, ...props };
 
-    // return <Component bsSize={bsSize} {...props} />
-    return <Component bsSize="sm" {...props} />
+    return <Component {...newProps} />
   };
+  WrappedComponent.propTypes = { ...Component.propTypes };
   WrappedComponent.displayName = `bsSize(${getDisplayName(Component)})`;
   return WrappedComponent;
 };

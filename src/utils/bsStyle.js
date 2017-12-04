@@ -23,6 +23,9 @@ export const BS_CONTEXTS = [
 
 export const bsContextStyle = (Component, defaultValue=BS_CONTEXT_NAMES.DEFAULT, contexts=BS_CONTEXTS) => {
 
+  if (!Component.propTypes) {
+    debugger;
+  }
   const {
     bsStyle,
     ...originalPropTypes

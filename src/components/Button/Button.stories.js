@@ -70,8 +70,8 @@ storiesOf('Buttons', module)
    */
   .add('Blocks', () => (
     <div>
-      <Button primary bsSize="large" block>Block level button</Button>
-      <Button bsSize="large" block>Block level button</Button>
+      <Button primary lg block>Block level button</Button>
+      <Button lg block>Block level button</Button>
     </div>
   ))
 
@@ -82,18 +82,18 @@ storiesOf('Buttons', module)
     <div>
       <h3>Normal</h3>
       <ButtonToolbar>
-        <Button primary bsSize="large">Primary button</Button>
-        <Button bsSize="large">Button</Button>
+        <Button primary lg>Primary button</Button>
+        <Button lg>Button</Button>
       </ButtonToolbar>
       <h3>Active</h3>
       <ButtonToolbar>
-        <Button primary bsSize="large" active>Primary button</Button>
-        <Button bsSize="large" active>Button</Button>
+        <Button primary lg active>Primary button</Button>
+        <Button lg active>Button</Button>
       </ButtonToolbar>
       <h3>Disabled</h3>
       <ButtonToolbar>
-        <Button primary bsSize="large" disabled>Primary button</Button>
-        <Button bsSize="large" disabled>Button</Button>
+        <Button primary lg disabled>Primary button</Button>
+        <Button lg disabled>Button</Button>
       </ButtonToolbar>
     </div>
   ))
