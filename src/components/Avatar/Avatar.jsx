@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import { Icon } from '../';
 
 const propTypes = {
-
   imgUrl: PropTypes.string,
-
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
 };
 
