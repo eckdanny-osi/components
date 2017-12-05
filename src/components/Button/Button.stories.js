@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 
 import { Button, ButtonToolbar, Icon } from '../';
 
@@ -14,7 +14,21 @@ storiesOf('Buttons', module)
 .add('Button', withInfo()(() => (
   <Button
     onClick={action('clicked')}
-    children="Hello Button"
+    children={text('Text', 'Hello')}
+    active={boolean('active', false)}
+    disabled={boolean('disabled', false)}
+    block={boolean('block', false)}
+    href={text('href', '')}
+    type={select('type', ['button', 'reset', 'submit'], 'button')}
+
+    danger={boolean('danger', false)}
+    success={boolean('success', false)}
+    warning={boolean('warning', false)}
+    primary={boolean('primary', false)}
+    info={boolean('info', false)}
+    default={boolean('default', true)}
+    link={boolean('link', false)}
+
     />
 )))
 

@@ -4,9 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-// import { Navbar } from '../components/Navbar';
-// import { PageHeader } from '../components/PageHeader';
-// import {  } from '../components/'
+import Foo from './Foo';
 
 import {
   Button,
@@ -15,9 +13,25 @@ import {
   Container, Row, Col,
   Card,
   Icon
-} from '../components';
+} from '../';
 
 storiesOf('Layout', module)
+
+.add('2col', () => (
+  <Foo
+    renderNav={() => <div>HELLO</div>}
+    renderMasthead={() => <Masthead />}
+    renderSideBar={() => (
+      <ul>
+        <li>I am</li>
+        <li>the</li>
+        <li>sidebar</li>
+      </ul>
+    )}
+  >
+    <div>HELLO WORLD</div>
+  </Foo>
+))
 
 /**
  *

@@ -34,4 +34,5 @@ export * from './RelationshipGraph';
 export * from './JsonDump';
 export * from './Tabs';
 export * from './Table';
+export * from './MenuItem';
 export { utils };
