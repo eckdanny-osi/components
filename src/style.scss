@@ -65,3 +65,9 @@ $fa-font-path:   "~font-awesome/fonts";
 @import "./components/Button/button";
 @import "./components/Card/cards";
 @import "./components/Table/tables.scss";
+
+
+.invisible {
+  visibility: hidden;
+}
+

@@ -94,7 +94,7 @@ class RelationshipForm extends React.Component {
                 </Col>
                 <Col sm={2}>
                   <FormGroup>
-                    <ControlLabel style={{ visibility: "hidden" }}>Submit</ControlLabel>
+                    <ControlLabel className="invisible hidden-xs">Submit</ControlLabel>
                     <Button
                       block
                       type="submit"
