@@ -31,6 +31,7 @@ export * from './ModalHeader';
 export * from './ModalTitle';
 export * from './RelationshipList';
 export * from './RelationshipGraph';
+export * from './RelationshipForm';
 export * from './JsonDump';
 export * from './Tabs';
 export * from './Table';
