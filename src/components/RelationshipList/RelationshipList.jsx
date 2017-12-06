@@ -4,16 +4,13 @@ import PropTypes from 'prop-types';
 const propTypes = {
   data: PropTypes.shape({
     nodes: PropTypes.array.isRequired,
-    links: PropTypes.array.isRequired
-  }).isRequired
+    links: PropTypes.array.isRequired,
+  }).isRequired,
 };
 
 const defaultProps = {
-  data: { nodes: [], links: [] }
+  data: { nodes: [], links: [] },
 };
-
-
-// output { name: string, children: [{ name: string, ?children: [] }]}
 
 const toTree = ({ nodes, links }) => {
   return nodes.reduce((aggr, node) => {
@@ -21,12 +18,11 @@ const toTree = ({ nodes, links }) => {
       ...aggr,
       {
         ...node,
-        children: links.filter(d => d.source === node.id)
-      }
-    ]
+        children: links.filter(d => d.source === node.id),
+      },
+    ];
   }, []);
-}
-
+};
 
 const RelationshipList = ({ data }) => {
   const { nodes, links } = data;
@@ -40,10 +36,10 @@ const RelationshipList = ({ data }) => {
       children: children.map(child => {
         return {
           ...child,
-          targetLabel: getTargetLabel(child.target)
+          targetLabel: getTargetLabel(child.target),
         };
-      })
-    }
+      }),
+    };
   });
 
   if (relationships.length) {
@@ -51,16 +47,17 @@ const RelationshipList = ({ data }) => {
       <ul className="relationship-list">
         {relationships.map(node => (
           <li key={node.id} className="relationship-list--node">
-            <strong>{node.label}</strong> {(node.children && node.children.length) ? 'is the' : 'has no relationships'}
+            <strong>{node.label}</strong>{' '}
+            {node.children && node.children.length
+              ? 'is the'
+              : 'has no relationships'}
             {node.children && (
               <ul className="relationship-list--links">
                 {node.children.map(link => {
                   return (
-                    <li
-                      key={link.id}
-                      className="relationship-list--link"
-                    >
-                      <strong>{link.label}</strong> of <strong>{link.targetLabel}</strong>
+                    <li key={link.id} className="relationship-list--link">
+                      <strong>{link.label}</strong> of{' '}
+                      <strong>{link.targetLabel}</strong>
                     </li>
                   );
                 })}

@@ -13,22 +13,31 @@ import {
   Card,
   Alert,
   Table,
-  RelationshipList
+  RelationshipList,
 } from '../';
 import set from 'lodash.set';
 import uniqueId from 'lodash.uniqueid';
 
 const propTypes = {
   data: PropTypes.shape({
-    nodes: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.any, label: PropTypes.string })),
-    links: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.any, source: PropTypes.any, target: PropTypes.any, label: PropTypes.string }))
-  })
+    nodes: PropTypes.arrayOf(
+      PropTypes.shape({ id: PropTypes.any, label: PropTypes.string })
+    ),
+    links: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.any,
+        source: PropTypes.any,
+        target: PropTypes.any,
+        label: PropTypes.string,
+      })
+    ),
+  }),
 };
 const defaultProps = {
   data: {
     nodes: [],
     links: [],
-  }
+  },
 };
 
 class RelationshipForm extends React.Component {
@@ -51,7 +60,7 @@ class RelationshipForm extends React.Component {
   }
   static get newPerson() {
     return {
-      label: ''
+      label: '',
     };
   }
   handleOnChange(e) {
@@ -60,16 +69,21 @@ class RelationshipForm extends React.Component {
   }
   addPerson(e) {
     e.preventDefault();
-    const nodes = [...this.state.data.nodes, { ...this.state.newPerson, id: uniqueId('tmp') } ];
-    const data = { ...this.state.data, nodes };
-    this.setState({ data, newPerson: RelationshipForm.newPerson });
+    // const nodes = [
+    //   ...this.state.data.nodes,
+    //   { ...this.state.newPerson, id: uniqueId('tmp') },
+    // ];
+    // const data = { ...this.state.data, nodes };
+    // this.setState({ data, newPerson: RelationshipForm.newPerson });
+    this.props.onAddNode({ ...this.state.newPerson, id: uniqueId('tmp') });
+    this.setState({ newPerson: RelationshipForm.newPerson });
   }
-  renderRelationshipsList() {
-    if (!this.state.data.nodes.length) {
-      return <Alert info>No people added yet!</Alert>
-    }
-    return <RelationshipList data={this.state.data} />
-  }
+  // renderRelationshipsList() {
+  //   if (!this.state.data.nodes.length) {
+  //     return <Alert info>No people added yet!</Alert>;
+  //   }
+  //   return <RelationshipList data={this.state.data} />;
+  // }
   renderAddPerson() {
     return (
       <div>
@@ -78,30 +92,31 @@ class RelationshipForm extends React.Component {
           <Col xs={12}>
             <Well>
               <form onSubmit={this.addPerson}>
-              <Row>
-                <Col sm={10}>
-                  <FormGroup>
-                    <ControlLabel>Name</ControlLabel>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Bob"
-                      value={this.state.newPerson.label}
-                      name="newPerson.label"
-                      onChange={this.handleOnChange}
-                    />
-                  </FormGroup>
-                </Col>
-                <Col sm={2}>
-                  <FormGroup>
-                    <ControlLabel className="invisible hidden-xs">Submit</ControlLabel>
-                    <Button
-                      block
-                      type="submit"
-                    ><Icon name="plus" /> Add</Button>
-                  </FormGroup>
-                </Col>
-              </Row>
+                <Row>
+                  <Col sm={10}>
+                    <FormGroup>
+                      <ControlLabel>Name</ControlLabel>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Bob"
+                        value={this.state.newPerson.label}
+                        name="newPerson.label"
+                        onChange={this.handleOnChange}
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col sm={2}>
+                    <FormGroup>
+                      <ControlLabel className="invisible hidden-xs">
+                        Submit
+                      </ControlLabel>
+                      <Button block type="submit">
+                        <Icon name="plus" /> Add
+                      </Button>
+                    </FormGroup>
+                  </Col>
+                </Row>
               </form>
             </Well>
           </Col>
@@ -117,66 +132,76 @@ class RelationshipForm extends React.Component {
           <Col xs={12}>
             <Well>
               <Row>
-              <Col sm={3}>
-                <FormGroup>
-                  <ControlLabel>Source</ControlLabel>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Bob"
-                    value={this.state.newRelationship.source}
-                    name="model.fname"
-                    onChange={(e) => this.setState({
-                      newRelationship: {
-                        ...this.state.newRelationship,
-                        source: e.target.value
+                <Col sm={3}>
+                  <FormGroup>
+                    <ControlLabel>Source</ControlLabel>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Bob"
+                      value={this.state.newRelationship.source}
+                      name="model.fname"
+                      onChange={e =>
+                        this.setState({
+                          newRelationship: {
+                            ...this.state.newRelationship,
+                            source: e.target.value,
+                          },
+                        })
                       }
-                    })}
-                  />
-                </FormGroup>
-              </Col>
-              <Col sm={4}>
-                <FormGroup>
-                  <ControlLabel>Relationship</ControlLabel>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Bob"
-                    value={this.state.newRelationship.label}
-                    name="model.fname"
-                    onChange={(e) => this.setState({
-                      newRelationship: {
-                        ...this.state.newRelationship,
-                        label: e.target.value
+                    />
+                  </FormGroup>
+                </Col>
+                <Col sm={4}>
+                  <FormGroup>
+                    <ControlLabel>Relationship</ControlLabel>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Bob"
+                      value={this.state.newRelationship.label}
+                      name="model.fname"
+                      onChange={e =>
+                        this.setState({
+                          newRelationship: {
+                            ...this.state.newRelationship,
+                            label: e.target.value,
+                          },
+                        })
                       }
-                    })}
-                  />
-                </FormGroup>
-              </Col>
-              <Col sm={3}>
-                <FormGroup>
-                  <ControlLabel>Target</ControlLabel>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Bob"
-                    value={this.state.newRelationship.target}
-                    name="model.fname"
-                    onChange={(e) => this.setState({
-                      newRelationship: {
-                        ...this.state.newRelationship,
-                        target: e.target.value
+                    />
+                  </FormGroup>
+                </Col>
+                <Col sm={3}>
+                  <FormGroup>
+                    <ControlLabel>Target</ControlLabel>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Bob"
+                      value={this.state.newRelationship.target}
+                      name="model.fname"
+                      onChange={e =>
+                        this.setState({
+                          newRelationship: {
+                            ...this.state.newRelationship,
+                            target: e.target.value,
+                          },
+                        })
                       }
-                    })}
-                  />
-                </FormGroup>
-              </Col>
-              <Col sm={2}>
-                <FormGroup>
-                  <ControlLabel style={{ visibility: "hidden" }}>Submit</ControlLabel>
-                  <Button block><Icon name="plus" /> Add</Button>
-                </FormGroup>
-              </Col>
+                    />
+                  </FormGroup>
+                </Col>
+                <Col sm={2}>
+                  <FormGroup>
+                    <ControlLabel style={{ visibility: 'hidden' }}>
+                      Submit
+                    </ControlLabel>
+                    <Button block>
+                      <Icon name="plus" /> Add
+                    </Button>
+                  </FormGroup>
+                </Col>
               </Row>
             </Well>
           </Col>
@@ -186,13 +211,11 @@ class RelationshipForm extends React.Component {
   }
   render() {
     return (
-      <Container>
-        <Card header={<h2>Relationships</h2>}>
-          { this.renderRelationshipsList() }
-          { this.renderAddPerson() }
-          { this.renderAddRelationship() }
-        </Card>
-      </Container>
+      <div>
+        {/* {this.props.renderRelationshipList()} */}
+        {/* {this.renderAddPerson()} */}
+        {this.renderAddRelationship()}
+      </div>
     );
   }
 }
