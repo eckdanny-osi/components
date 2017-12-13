@@ -23,143 +23,16 @@ import {
   ControlLabel,
   Button,
   Icon,
+  JsonDump,
 } from '../';
 import { RelationshipForm } from './';
 
-const AddNodeForm = ({ pendingNode, onChange, onSubmit }) => {
-  pendingNode = pendingNode || { name: '' };
-  const handleSubmit = e => {
-    e.preventDefault();
-    onSubmit();
-  };
-  const handleChange = e => {
-    onChange({ label: e.target.value });
-  };
-  return (
-    <div>
-      <h4>Add Person</h4>
-      <Row>
-        <Col xs={12}>
-          <Well>
-            <form onSubmit={handleSubmit} autoComplete="off">
-              <Row>
-                <Col sm={10}>
-                  <FormGroup>
-                    <ControlLabel>Name</ControlLabel>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Bob"
-                      value={pendingNode.label}
-                      name="newPerson.label"
-                      onChange={handleChange}
-                    />
-                  </FormGroup>
-                </Col>
-                <Col sm={2}>
-                  <FormGroup>
-                    <ControlLabel className="invisible hidden-xs">
-                      Submit
-                    </ControlLabel>
-                    <Button block type="submit" disabled={!pendingNode.label}>
-                      <Icon name="plus" /> Add
-                    </Button>
-                  </FormGroup>
-                </Col>
-              </Row>
-            </form>
-          </Well>
-        </Col>
-      </Row>
-    </div>
-  );
-};
+import AddNodeForm from './AddNode';
+import AddLinkForm from './AddLink';
+// import RelationshipGraph from '../RelationshipGraph';
 
-const AddLinkForm = ({ pendingLink }) => {
-  return (
-    <div>
-      <h4>Add Relationship</h4>
-      <Row>
-        <Col xs={12}>
-          <Well>
-            <Row>
-              <Col sm={3}>
-                <FormGroup>
-                  <ControlLabel>Source</ControlLabel>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Bob"
-                    value={this.state.newRelationship.source}
-                    name="model.fname"
-                    onChange={e =>
-                      this.setState({
-                        newRelationship: {
-                          ...this.state.newRelationship,
-                          source: e.target.value,
-                        },
-                      })
-                    }
-                  />
-                </FormGroup>
-              </Col>
-              <Col sm={4}>
-                <FormGroup>
-                  <ControlLabel>Relationship</ControlLabel>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Bob"
-                    value={this.state.newRelationship.label}
-                    name="model.fname"
-                    onChange={e =>
-                      this.setState({
-                        newRelationship: {
-                          ...this.state.newRelationship,
-                          label: e.target.value,
-                        },
-                      })
-                    }
-                  />
-                </FormGroup>
-              </Col>
-              <Col sm={3}>
-                <FormGroup>
-                  <ControlLabel>Target</ControlLabel>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Bob"
-                    value={this.state.newRelationship.target}
-                    name="model.fname"
-                    onChange={e =>
-                      this.setState({
-                        newRelationship: {
-                          ...this.state.newRelationship,
-                          target: e.target.value,
-                        },
-                      })
-                    }
-                  />
-                </FormGroup>
-              </Col>
-              <Col sm={2}>
-                <FormGroup>
-                  <ControlLabel style={{ visibility: 'hidden' }}>
-                    Submit
-                  </ControlLabel>
-                  <Button block>
-                    <Icon name="plus" /> Add
-                  </Button>
-                </FormGroup>
-              </Col>
-            </Row>
-          </Well>
-        </Col>
-      </Row>
-    </div>
-  );
-};
+import ContainerDimensions from 'react-container-dimensions';
+import { D3Thing } from '../RelationshipGraph/RelationshipGraph';
 
 // import _data from '../RelationshipList/data.json';
 // const data = JSON.parse(JSON.stringify(_data));
@@ -199,9 +72,20 @@ class RelationshipFormContainer extends React.Component {
       pendingNode: RelationshipFormContainer.defaultPendingNode,
     });
   };
-  handleAddLink = link => {
-    debugger;
-  };
+  handleAddLink(link) {
+    const links = [
+      ...this.state.data.links,
+      {
+        ...link,
+        id: uniqueId(),
+      },
+    ];
+    const data = { ...this.state.data, links };
+    this.setState({
+      data,
+      pendingLink: RelationshipFormContainer.defaultPendingLink,
+    });
+  }
   renderRelationshipList() {
     if (!this.state.data.nodes.length) {
       return <Alert info>No people added yet!</Alert>;
@@ -214,14 +98,26 @@ class RelationshipFormContainer extends React.Component {
       <Container>
         <Card header={<h2>Relationships</h2>}>
           {this.renderRelationshipList()}
+
+          <div>
+            <ContainerDimensions>
+              {({ width }) => (
+                <D3Thing graph={this.state.data} width={width} height={300} />
+              )}
+            </ContainerDimensions>
+          </div>
+
+          <JsonDump data={this.state.data} />
+
           <AddNodeForm
-            onSubmit={() => {
-              this.handleAddNode(this.state.pendingNode);
-            }}
             pendingNode={this.state.pendingNode}
-            onChange={pendingNode => {
-              this.setState({ pendingNode });
-            }}
+            onSubmit={() => this.handleAddNode(this.state.pendingNode)}
+            onChange={pendingNode => this.setState({ pendingNode })}
+          />
+          <AddLinkForm
+            pendingLink={this.state.pendingLink}
+            onSubmit={() => this.handleAddLink(this.state.pendingLink)}
+            onChange={pendingLink => this.setState({ pendingLink })}
           />
           {/* <RelationshipForm
             data={this.state.data}
