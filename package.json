@@ -7,7 +7,7 @@
     "build:css": "node-sass --output lib --source-map true --source-map-contents --include-path node_modules --include-path \"node_modules/bootstrap-sass/assets/stylesheets\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "jest"
+    "test": "jest --env=jsdom"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.16",
