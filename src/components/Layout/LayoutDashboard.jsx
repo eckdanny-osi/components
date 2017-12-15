@@ -12,10 +12,28 @@ const layoutDashboard = Wrapped => {
 };
 
 const layoutSidebar = Wrapped => {
-  const Component = ({ regions, side, fixed, content, ...props }) => {
-    const _regions =
-      'right' === side ? [{ sm: 9 }, { sm: 3 }] : [{ sm: 3 }, { sm: 9 }];
-    const _content = 'right' === side ? [...content].reverse() : [...content];
+  const Component = ({
+    regions,
+    side,
+    renderSidebar,
+    renderMain,
+    children,
+    fixed,
+    content,
+    ...props
+  }) => {
+    let _regions, _content;
+    if (side === 'right') {
+      [_regions, _content] = [
+        [{ sm: 3, xsHidden: true, smPush: 9 }, { sm: 9, smPull: 3 }],
+        [renderSidebar, renderMain],
+      ];
+    } else {
+      [_regions, _content] = [
+        [{ sm: 3, xsHidden: true }, { sm: 9 }],
+        [renderSidebar, renderMain],
+      ];
+    }
     return <Wrapped regions={_regions} content={_content} {...props} />;
   };
   Component.displayName = 'sidebar';
