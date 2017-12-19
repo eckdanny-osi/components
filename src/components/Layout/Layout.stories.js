@@ -207,6 +207,60 @@ storiesOf('LayoutTest', module)
                       <a href="#e" className="list-group-item">
                         E
                       </a>
+                      <a href="#scrollspy" className="list-group-item">
+                        ScrollSpy
+                      </a>
+                      <a href="#a" className="list-group-item">
+                        A
+                      </a>
+                      <a href="#b" className="list-group-item">
+                        B
+                      </a>
+                      <a href="#c" className="list-group-item">
+                        C
+                      </a>
+                      <a href="#d" className="list-group-item">
+                        D
+                      </a>
+                      <a href="#e" className="list-group-item">
+                        E
+                      </a>
+                      <a href="#scrollspy" className="list-group-item">
+                        ScrollSpy
+                      </a>
+                      <a href="#a" className="list-group-item">
+                        A
+                      </a>
+                      <a href="#b" className="list-group-item">
+                        B
+                      </a>
+                      <a href="#c" className="list-group-item">
+                        C
+                      </a>
+                      <a href="#d" className="list-group-item">
+                        D
+                      </a>
+                      <a href="#e" className="list-group-item">
+                        E
+                      </a>
+                      <a href="#scrollspy" className="list-group-item">
+                        ScrollSpy
+                      </a>
+                      <a href="#a" className="list-group-item">
+                        A
+                      </a>
+                      <a href="#b" className="list-group-item">
+                        B
+                      </a>
+                      <a href="#c" className="list-group-item">
+                        C
+                      </a>
+                      <a href="#d" className="list-group-item">
+                        D
+                      </a>
+                      <a href="#e" className="list-group-item">
+                        E
+                      </a>
                     </div>
                   </AutoAffix>
                 </div>
