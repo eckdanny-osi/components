@@ -72,3 +72,12 @@ $fa-font-path: '~font-awesome/fonts';
 .invisible {
   visibility: hidden;
 }
+
+.bs-docs-sidebar-holder .list-group {
+  display: none;
+  @media (min-width: $screen-sm-min) {
+    display: block;
+    bottom: 15px;
+    overflow-y: scroll;
+  }
+}

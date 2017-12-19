@@ -182,117 +182,33 @@ storiesOf('LayoutTest', module)
         content={[
           () => (
             <div>
-              <Row id="asdf">
+              <Row>
                 <div className="col-sm-3 bs-docs-sidebar-holder">
-                  <AutoAffix viewportOffsetTop={135}>
-                    <div>
-                      <div className="list-group">
-                        <h4
-                          className="list-group-item"
-                          style={{ marginTop: 0 }}
-                        >
-                          Header
-                        </h4>
-                        <a href="#scrollspy" className="list-group-item">
-                          ScrollSpy
-                        </a>
-                        <a href="#" className="list-group-item">
-                          Dapibus ac facilisis in
-                        </a>
-                        <a href="#" className="list-group-item">
-                          Morbi leo risus
-                        </a>
-                        <a href="#" className="list-group-item">
-                          Porta ac consectetur ac
-                        </a>
-                        <a href="#" className="list-group-item">
-                          Vestibulum at eros
-                        </a>
-                      </div>
-                    </div>
-                  </AutoAffix>
-                  {/* <AutoAffix /> */}
-                  {/* <AutoAffix viewportOffsetTop={20}>
-                    <div
-                      className="bs-docs-sidebar hidden-print"
-                      role="complementary"
-                    >
-                      <Nav className="bs-docs-sidenav" onSelect={() => {}}>
-                        <SubNav text="Buttons">
-                          <NavItem>Button groups</NavItem>
-                          <NavItem>Dropdowns</NavItem>
-                          <NavItem>Menu items</NavItem>
-                        </SubNav>
-                        Similar blocks of code found in 2 locations. Consider
-                        refactoring. …
-                        <SubNav text="Overlays">
-                          <NavItem>Modals</NavItem>
-                          <NavItem>Tooltips</NavItem>
-                          <NavItem>Popovers</NavItem>
-                          <NavItem>Custom overlays</NavItem>
-                        </SubNav>
-                        <SubNav text="Navigation">
-                          <NavItem>Navs</NavItem>
-                          <NavItem>Navbars</NavItem>
-                          <NavItem>Breadcrumbs</NavItem>
-                          <NavItem>Tabs</NavItem>
-                          <NavItem>Pagination</NavItem>
-                          <NavItem>Pager</NavItem>
-                        </SubNav>
-                        <SubNav text="Page layout">
-                          <NavItem>Grid system</NavItem>
-                          <NavItem>Jumbotron</NavItem>
-                          <NavItem>Page header</NavItem>
-                          <NavItem>List group</NavItem>
-                          <NavItem>Tables</NavItem>
-                          <NavItem>Panels</NavItem>
-                          <NavItem>Wells</NavItem>
-                        </SubNav>
-                        Similar blocks of code found in 2 locations. Consider
-                        refactoring. …
-                        <SubNav text="Forms">
-                          <NavItem>Supported controls</NavItem>
-                          <NavItem>Form layout</NavItem>
-                          <NavItem>Input groups</NavItem>
-                          <NavItem>Validation states</NavItem>
-                        </SubNav>
-                        Similar blocks of code found in 2 locations. Consider
-                        refactoring. …
-                        <SubNav text="Media content">
-                          <NavItem>Images</NavItem>
-                          <NavItem>Thumbnails</NavItem>
-                          <NavItem>Responsive embed</NavItem>
-                          <NavItem>Carousels</NavItem>
-                          <NavItem>Media objects</NavItem>
-                        </SubNav>
-                        Similar blocks of code found in 2 locations. Consider
-                        refactoring. …
-                        <SubNav text="Miscellaneous">
-                          <NavItem>Glyphicons</NavItem>
-                          <NavItem>Labels</NavItem>
-                          <NavItem>Badges</NavItem>
-                          <NavItem>Alerts</NavItem>
-                          <NavItem>Progress bars</NavItem>
-                        </SubNav>
-                        Similar blocks of code found in 2 locations. Consider
-                        refactoring. …
-                        <SubNav text="Utilities">
-                          <NavItem>Transitions</NavItem>
-                          <NavItem>Custom Styles</NavItem>
-                        </SubNav>
-                        Similar blocks of code found in 2 locations. Consider
-                        refactoring. …
-                        <SubNav text="Missing components">
-                          <NavItem>Affix</NavItem>
-                          <NavItem>Scrollspy</NavItem>
-                        </SubNav>
-                      </Nav>
-
-                      <a className="back-to-top" href="#top">
-                        Back to top
+                  <AutoAffix viewportOffsetTop={135} className="shit">
+                    <div className="list-group">
+                      <h4 className="list-group-item" style={{ marginTop: 0 }}>
+                        Header
+                      </h4>
+                      <a href="#scrollspy" className="list-group-item">
+                        ScrollSpy
+                      </a>
+                      <a href="#a" className="list-group-item">
+                        A
+                      </a>
+                      <a href="#b" className="list-group-item">
+                        B
+                      </a>
+                      <a href="#c" className="list-group-item">
+                        C
+                      </a>
+                      <a href="#d" className="list-group-item">
+                        D
+                      </a>
+                      <a href="#e" className="list-group-item">
+                        E
                       </a>
                     </div>
-                  </AutoAffix> */}
+                  </AutoAffix>
                 </div>
                 <Col sm={9}>
                   <Card
@@ -304,7 +220,7 @@ storiesOf('LayoutTest', module)
                           style={{
                             display: 'block',
                             position: 'relative',
-                            top: '-250px',
+                            top: '-163px',
                             visibility: 'hidden',
                           }}
                         />
@@ -317,7 +233,22 @@ storiesOf('LayoutTest', module)
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
                   </Card>
-                  <Card header="Hello World">
+                  <Card
+                    header={
+                      <h3>
+                        A
+                        <a
+                          id="a"
+                          style={{
+                            display: 'block',
+                            position: 'relative',
+                            top: '-163px',
+                            visibility: 'hidden',
+                          }}
+                        />
+                      </h3>
+                    }
+                  >
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
@@ -325,51 +256,22 @@ storiesOf('LayoutTest', module)
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
                   </Card>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <Card>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  </Card>
-                  <Card header="Hello World">
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  </Card>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <Card>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  </Card>
-                  <Card header="Hello World">
+                  <Card
+                    header={
+                      <h3>
+                        B
+                        <a
+                          id="b"
+                          style={{
+                            display: 'block',
+                            position: 'relative',
+                            top: '-163px',
+                            visibility: 'hidden',
+                          }}
+                        />
+                      </h3>
+                    }
+                  >
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
@@ -377,51 +279,22 @@ storiesOf('LayoutTest', module)
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
                   </Card>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <Card>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  </Card>
-                  <Card header="Hello World">
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  </Card>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <Card>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                    <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  </Card>
-                  <Card header="Hello World">
+                  <Card
+                    header={
+                      <h3>
+                        C
+                        <a
+                          id="c"
+                          style={{
+                            display: 'block',
+                            position: 'relative',
+                            top: '-163px',
+                            visibility: 'hidden',
+                          }}
+                        />
+                      </h3>
+                    }
+                  >
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
@@ -429,17 +302,52 @@ storiesOf('LayoutTest', module)
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
                     <p>alksdjflkasdfjalksdjfalksdfj</p>
                   </Card>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
-                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <Card
+                    header={
+                      <h3>
+                        D
+                        <a
+                          id="d"
+                          style={{
+                            display: 'block',
+                            position: 'relative',
+                            top: '-163px',
+                            visibility: 'hidden',
+                          }}
+                        />
+                      </h3>
+                    }
+                  >
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  </Card>
+                  <Card
+                    header={
+                      <h3>
+                        E
+                        <a
+                          id="e"
+                          style={{
+                            display: 'block',
+                            position: 'relative',
+                            top: '-163px',
+                            visibility: 'hidden',
+                          }}
+                        />
+                      </h3>
+                    }
+                  >
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  </Card>
                   <a href="#scrollspy">ScrollSpy</a>
                 </Col>
               </Row>
