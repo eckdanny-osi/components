@@ -16,7 +16,14 @@ import {
 } from 'react-bootstrap';
 
 export default ({}) => (
-  <Headroom disableInlineStyles>
+  <Headroom
+    disableInlineStyles
+    onPin={() => console.log('callback called when header is pinned')}
+    onUnpin={() => console.log('callback called when header is unpinned')}
+    onUnfix={() =>
+      console.log('callback called when header position is no longer fixed')
+    }
+  >
     <Navbar inverse>
       <Navbar.Header>
         <Navbar.Brand>

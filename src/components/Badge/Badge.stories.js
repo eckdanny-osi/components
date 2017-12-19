@@ -9,11 +9,13 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { Badge } from '../';
 
 storiesOf('Badges', module)
-
   .addDecorator(withKnobs)
-  .add('Badge', withInfo()(() => (
-    <Badge
-      pullRight={boolean('pullRight', false)}
-      children={text('content', 'hello')}
+  .add(
+    'Badge',
+    withInfo()(() => (
+      <Badge
+        pullRight={boolean('pullRight', false)}
+        children={text('content', 'hello')}
       />
-  )));
+    ))
+  );
