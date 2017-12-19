@@ -12,7 +12,7 @@ const propTypes = {
 const defaultProps = {
   renderHeader: () => <Navbar />,
   renderMasthead: props => {
-    return <Masthead title="lskdjflksdjf" {...props} />;
+    return <Masthead {...props} />;
   },
   regions: [{ sm: 4 }, { sm: 8 }],
   content: [props => 'FIRST THING', props => 'SECOND THING'],
@@ -42,10 +42,8 @@ const Layout = ({
 }) => {
   return (
     <div>
-      <div>
-        {renderHeader(...props)}
-        {renderMasthead(...props)}
-      </div>
+      {renderHeader(...props)}
+      {renderMasthead(...props)}
       <Container>
         <Row>{_renderMain(regions, content, props)}</Row>
       </Container>

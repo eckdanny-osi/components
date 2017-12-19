@@ -25,12 +25,12 @@ const layoutSidebar = Wrapped => {
     let _regions, _content;
     if (side === 'right') {
       [_regions, _content] = [
-        [{ sm: 3, xsHidden: true, smPush: 9 }, { sm: 9, smPull: 3 }],
+        [{ sm: 3, xsHidden: false, smPush: 9 }, { sm: 9, smPull: 3 }],
         [renderSidebar, renderMain],
       ];
     } else {
       [_regions, _content] = [
-        [{ sm: 3, xsHidden: true }, { sm: 9 }],
+        [{ sm: 3, xsHidden: false }, { sm: 9 }],
         [renderSidebar, renderMain],
       ];
     }

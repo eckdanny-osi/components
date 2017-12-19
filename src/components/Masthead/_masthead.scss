@@ -1,6 +1,13 @@
 .masthead {
-  background-image: linear-gradient(to right, $masthead-bg-dark, $masthead-bg-light);
+  background-image: linear-gradient(
+    to right,
+    $masthead-bg-dark,
+    $masthead-bg-light
+  );
   margin-bottom: $masthead-margin-bottom;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .masthead-body {
@@ -16,5 +23,4 @@
 }
 
 .masthead-actions {
-
 }

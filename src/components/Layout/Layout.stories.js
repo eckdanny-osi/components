@@ -4,9 +4,10 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import { Row, Col, Card } from '../';
+import { Row, Col, Card, Masthead, Navbar } from '../';
 
 import Layout from './Layout';
+import { Sidebar } from '../Sidebar';
 import { LayoutDashboard, LayoutSidebar } from './LayoutDashboard';
 
 storiesOf('LayoutTest', module)
@@ -158,39 +159,218 @@ storiesOf('LayoutTest', module)
 
   .add('SidebarLayout (fixed)', () => {
     return (
-      <LayoutSidebar
-        side="left"
-        fixed={true}
+      <div>
+        <Navbar />
+        <Masthead />
+        <div className="container-fluid">
+          <Sidebar />
+          <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h2>Hello world</h2>
+          </div>
+        </div>
+      </div>
+    );
+  })
+
+  .add('SidebarLayout Fixing', () => {
+    return (
+      <LayoutDashboard
+        title="My Title"
         content={[
-          props => (
-            <div style={{ backgroundColor: 'red' }}>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-            </div>
-          ),
-          props => (
-            <div style={{ backgroundColor: 'pink' }}>
-              <h3>alksdjfalksdjf</h3>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
-              <p>asldfkjalskdjf</p>
+          () => (
+            <div>
+              {/* <h3>I am the Main Content Area</h3>
+            <p> I have a grid of my own!</p>
+            <Row>
+              <Col sm={3}>alskdfj</Col>
+              <Col sm={3}>alksdjfalksdfj</Col>
+              <Col sm={3} smOffset={3}>
+                alksdjflaksdjf
+              </Col>
+            </Row> */}
+              <Row>
+                <Col sm={3}>
+                  <div>
+                    <div className="list-group">
+                      <h4 className="list-group-item">Header</h4>
+                      <a href="#" className="list-group-item">
+                        Cras justo odio
+                      </a>
+                      <a href="#" className="list-group-item">
+                        Dapibus ac facilisis in
+                      </a>
+                      <a href="#" className="list-group-item">
+                        Morbi leo risus
+                      </a>
+                      <a href="#" className="list-group-item">
+                        Porta ac consectetur ac
+                      </a>
+                      <a href="#" className="list-group-item">
+                        Vestibulum at eros
+                      </a>
+                      <a href="#" className="list-group-item">
+                        Morbi leo risus
+                      </a>
+                      <a href="#" className="list-group-item">
+                        Porta ac consectetur ac
+                      </a>
+                      <a href="#" className="list-group-item">
+                        Vestibulum at eros
+                      </a>
+                      <a href="#" className="list-group-item">
+                        Morbi leo risus
+                      </a>
+                      <a href="#" className="list-group-item">
+                        Porta ac consectetur ac
+                      </a>
+                      <a href="#" className="list-group-item">
+                        Vestibulum at eros
+                      </a>
+                      <a href="#" className="list-group-item">
+                        Morbi leo risus
+                      </a>
+                      <a href="#" className="list-group-item">
+                        Porta ac consectetur ac
+                      </a>
+                      <a href="#" className="list-group-item">
+                        Vestibulum at eros
+                      </a>
+                    </div>
+                  </div>
+                </Col>
+                <Col sm={9}>
+                  <Card>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  </Card>
+                  <Card header="Hello World">
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  </Card>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <Card>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  </Card>
+                  <Card header="Hello World">
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  </Card>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <Card>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  </Card>
+                  <Card header="Hello World">
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  </Card>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <Card>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  </Card>
+                  <Card header="Hello World">
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  </Card>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <Card>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  </Card>
+                  <Card header="Hello World">
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                    <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  </Card>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                  <p>alksdjflkasdfjalksdjfalksdfj</p>
+                </Col>
+              </Row>
             </div>
           ),
         ]}
