@@ -1,6 +1,11 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 $fa-font-path: '~font-awesome/fonts';
 
+// $form-check-input-gutter: 5px;
+// $input-border-color: red;
+// $input-disabled-bg: purple;
+// $form-feedback-invalid-color: green;
+
 @import './variables';
 
 // Core variables and mixins
@@ -52,6 +57,9 @@ $fa-font-path: '~font-awesome/fonts';
 // Utility classes
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/utilities';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities';
+
+// @import '~awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.scss';
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
 
 //
 // TODO(dce): PLACE ME
