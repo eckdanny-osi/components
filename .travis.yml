@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - stable
+
+env:
+  - BROWSER=ChromeCi
+  - BROWSER=Firefox
+
+cache: yarn
+
+branches:
+  only:
+    - master
+    - next
