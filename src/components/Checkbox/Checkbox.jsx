@@ -65,8 +65,8 @@ const pretty = Component => {
               className,
               classes,
               'pretty',
-              'p-icon',
-              'p-smooth'
+              'p-icon'
+              // 'p-smooth'
             )}
           >
             {input}
@@ -98,8 +98,8 @@ const pretty = Component => {
             className,
             classes,
             'pretty',
-            'p-icon',
-            'p-smooth'
+            'p-icon'
+            // 'p-smooth'
           )}
         >
           {/* <input type="checkbox" /> */}

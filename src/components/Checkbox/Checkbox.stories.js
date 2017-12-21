@@ -97,38 +97,38 @@ storiesOf('Checkbox', module)
       <h4>Validation States</h4>
       <Row>
         <Col md={4}>
-          <div>
-            <div className="checkbox">
-              <label>
-                <input type="checkbox" id="checkboxSuccess" value="option1" />
-                No ValidationState
-              </label>
-            </div>
+          {/* <div> */}
+          <div className="checkbox">
+            <label>
+              <input type="checkbox" id="checkboxSuccess" value="option1" />
+              No ValidationState
+            </label>
           </div>
-          <div className="has-success">
-            <div className="checkbox">
-              <label>
-                <input type="checkbox" id="checkboxSuccess" value="option1" />
-                Checkbox with success
-              </label>
-            </div>
+          {/* </div> */}
+          {/* <div className="has-success"> */}
+          <div className="checkbox has-success">
+            <label>
+              <input type="checkbox" id="checkboxSuccess" value="option1" />
+              Checkbox with success
+            </label>
           </div>
-          <div className="has-warning">
-            <div className="checkbox">
-              <label>
-                <input type="checkbox" id="checkboxWarning" value="option1" />
-                Checkbox with warning
-              </label>
-            </div>
+          {/* </div> */}
+          {/* <div className="has-warning"> */}
+          <div className="checkbox has-warning">
+            <label>
+              <input type="checkbox" id="checkboxWarning" value="option1" />
+              Checkbox with warning
+            </label>
           </div>
-          <div className="has-error">
-            <div className="checkbox">
-              <label>
-                <input type="checkbox" id="checkboxError" value="option1" />
-                Checkbox with error
-              </label>
-            </div>
+          {/* </div> */}
+          {/* <div className="has-error"> */}
+          <div className="checkbox has-error">
+            <label>
+              <input type="checkbox" id="checkboxError" value="option1" />
+              Checkbox with error
+            </label>
           </div>
+          {/* </div> */}
         </Col>
         <Col md={4}>
           <CheckboxRBS validationState={null}>No ValidationState</CheckboxRBS>
