@@ -60,12 +60,16 @@ $fa-font-path: '~font-awesome/fonts';
 
 // @import '~awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.scss';
 @import '~pretty-checkbox/src/pretty-checkbox.scss';
+@import './components/Checkbox/checkbox';
 
 //
 // TODO(dce): PLACE ME
 //
 
 @import '~font-awesome/scss/font-awesome';
+
+@import '~react-select/scss/default';
+
 @import './components/Masthead/masthead';
 
 @import './components/Alert/alert';

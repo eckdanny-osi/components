@@ -1,14 +1,14 @@
 import React from 'react';
-import { Grid as Container, Col, Row } from 'react-bootstrap';
-import { Navbar, Masthead } from '../';
+import { Navbar, Masthead, Container, Col, Row } from '../';
 import PropTypes from 'prop-types';
 
 const propTypes = {
   renderHeader: PropTypes.func,
   renderMasthead: PropTypes.func,
-  layout: PropTypes.arrayOf(PropTypes.object),
-  renderMain: PropTypes.arrayOf(PropTypes.func),
+  regions: PropTypes.any,
+  content: PropTypes.any,
 };
+
 const defaultProps = {
   renderHeader: () => <Navbar />,
   renderMasthead: props => {
@@ -18,11 +18,11 @@ const defaultProps = {
   content: [props => 'FIRST THING', props => 'SECOND THING'],
 };
 
-const _renderMain = (layout, renderMain, props) => {
-  return renderMain
+const _renderMain = (regions, contents, props) => {
+  return contents
     .map((renderFn, i) => ({
       renderFn,
-      colProps: layout[i],
+      colProps: regions[i],
     }))
     .map(({ colProps, renderFn }, i) => {
       return (
@@ -42,8 +42,8 @@ const Layout = ({
 }) => {
   return (
     <div>
-      {renderHeader(...props)}
-      {renderMasthead(...props)}
+      {renderHeader(props)}
+      {renderMasthead(props)}
       <Container>
         <Row>{_renderMain(regions, content, props)}</Row>
       </Container>
@@ -51,7 +51,7 @@ const Layout = ({
   );
 };
 
-Layout.propTypes = PropTypes;
+Layout.propTypes = propTypes;
 Layout.defaultProps = defaultProps;
 
 export default Layout;

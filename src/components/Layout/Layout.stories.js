@@ -3,36 +3,40 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
+import ContainerDimensions from 'react-container-dimensions';
 
-import { Row, Col, Card, Masthead, Navbar } from '../';
+import { Row, Col, Container, Card, Masthead, Navbar } from '../';
 
-import Layout from './Layout';
+// import Layout from './Layout';
 import { Sidebar } from '../Sidebar';
-import { LayoutDashboard, LayoutSidebar } from './LayoutDashboard';
+// import { LayoutDashboard, LayoutSidebar } from './LayoutDashboard';
 
-import { Nav, SubNav, NavItem } from 'react-bootstrap';
+// import Layout from './Layout';
+import { Layout, LayoutDashboard, LayoutSidebar } from './';
+
+// import { Nav, SubNav, NavItem } from 'react-bootstrap';
 
 import AutoAffix from 'react-overlays/lib/AutoAffix';
 
-class AffixExample extends React.Component {
-  render() {
-    return (
-      <div
-        className="affix-example"
-        style={{ height: '800px', border: '1px solid blue' }}
-        ref={el => {
-          this.el = el;
-        }}
-      >
-        <AutoAffix viewportOffsetTop={15} container={this.el}>
-          <div className="panel panel-default">
-            <div className="panel-body">I am an affixed element</div>
-          </div>
-        </AutoAffix>
-      </div>
-    );
-  }
-}
+// class AffixExample extends React.Component {
+//   render() {
+//     return (
+//       <div
+//         className="affix-example"
+//         style={{ height: '800px', border: '1px solid blue' }}
+//         ref={el => {
+//           this.el = el;
+//         }}
+//       >
+//         <AutoAffix viewportOffsetTop={15} container={this.el}>
+//           <div className="panel panel-default">
+//             <div className="panel-body">I am an affixed element</div>
+//           </div>
+//         </AutoAffix>
+//       </div>
+//     );
+//   }
+// }
 
 storiesOf('LayoutTest', module)
   /**
@@ -49,9 +53,7 @@ storiesOf('LayoutTest', module)
 
   .add('test DashboardLayout', () => {
     return (
-      <LayoutDashboard
-        content={[props => 'Dashboard has only one content region!']}
-      />
+      <LayoutDashboard>Dashboard has only one content region!</LayoutDashboard>
     );
   })
 
@@ -68,14 +70,14 @@ storiesOf('LayoutTest', module)
         renderMain={() => (
           <div>
             {/* <h3>I am the Main Content Area</h3>
-            <p> I have a grid of my own!</p>
-            <Row>
-              <Col sm={3}>alskdfj</Col>
-              <Col sm={3}>alksdjfalksdfj</Col>
-              <Col sm={3} smOffset={3}>
-                alksdjflaksdjf
-              </Col>
-            </Row> */}
+          <p> I have a grid of my own!</p>
+          <Row>
+            <Col sm={3}>alskdfj</Col>
+            <Col sm={3}>alksdjfalksdfj</Col>
+            <Col sm={3} smOffset={3}>
+              alksdjflaksdjf
+            </Col>
+          </Row> */}
             <Row>
               <Col sm={9}>
                 <Card>
@@ -405,6 +407,75 @@ storiesOf('LayoutTest', module)
                   <a href="#scrollspy">ScrollSpy</a>
                 </Col>
               </Row>
+            </div>
+          ),
+        ]}
+      />
+    );
+  })
+
+  .add('Another idea...', () => {
+    return (
+      <Layout
+        regions={[{ sm: 3 }, { sm: 9 }]}
+        content={[
+          () => (
+            <ContainerDimensions>
+              {({ width }) => {
+                return (
+                  // <D3Thing graph={data} width={width} height={300} />
+                  <div
+                    style={{
+                      backgroundColor: 'pink',
+                      width: '230px',
+                      position: 'fixed',
+                      bottom: '0',
+                      top: '130px',
+                      overflowY: 'scroll',
+                    }}
+                  >
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                    <p>SOMETHING</p>
+                  </div>
+                );
+              }}
+            </ContainerDimensions>
+          ),
+          () => (
+            <div>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
+              <p>alskdfjalksdjf</p>
             </div>
           ),
         ]}
